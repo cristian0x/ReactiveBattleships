@@ -1,0 +1,22 @@
+.node {
+  width: 30px;
+  height: 30px;
+  outline: 1px solid black;
+  display: inline-block;
+  margin-left: 2px;
+  margin-right: 2px;
+  margin-bottom: -3px;
+  background-color: lightblue;
+}
+
+.node-filled {
+  background-color: grey;
+}
+
+.node-hit {
+  background-color: red;
+}
+
+.node-missed {
+  background-color: lightcyan;
+}

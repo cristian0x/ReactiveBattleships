@@ -1,0 +1,22 @@
+.gameBoard {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  margin: 5%;
+}
+
+.gridPlayer {
+  flex-wrap: wrap;
+  margin: 2%;
+}
+
+.gridOpponent {
+  flex-wrap: wrap;
+  margin: 2%;
+}
+
+.whoseTurn {
+  flex-wrap: wrap;
+  margin-top: 2%;
+}
