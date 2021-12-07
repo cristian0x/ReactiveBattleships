@@ -3,7 +3,7 @@ body {
 }
 
 .mainContainer {
-  background-color: #4e4e4e;
+  background-image: linear-gradient(to left top, #158b9b, #009aa5, #00aaae, #00b9b4, #0cc9b8);
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -13,18 +13,19 @@ body {
 }
 
 .battleshipsText {
-  font-family: MedievalSharp;
+  font-family: MedievalSharp, serif;
   font-style: normal;
   font-weight: 500;
-  font-size: 500%;
+  font-size: 600%;
   line-height: 180%;
   flex-wrap: wrap;
   color: #ffffff;
 }
 
 .chooseMode {
-  background: #c4c4c4;
-  border-radius: 25px;
+  background: transparent;
+  border-radius: 50px;
+  border: 3px solid white;
   margin: 0.7%;
   width: 50vh;
   height: 10vh;
@@ -33,10 +34,11 @@ body {
 }
 
 .chooseModeText {
-  font-family: MedievalSharp;
+  font-family: MedievalSharp, serif;
   font-style: normal;
   font-weight: 500;
   font-size: 190%;
+  color: white;
   flex-wrap: wrap;
   align-items: center;
   text-align: center;
