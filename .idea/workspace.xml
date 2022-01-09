@@ -5,113 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="070921f3-6a97-4d94-8481-8188e04109fe" name="Default Changelist" comment="Update 31.10 - new classes and repositories">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__antlr_antlr_2_7_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_classmate_1_5_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_activation_jakarta_activation_1_2_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_istack_istack_commons_runtime_3_0_12.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_mail_jakarta_mail_1_6_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_zaxxer_HikariCP_4_0_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_persistence_jakarta_persistence_api_2_2_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_transaction_jakarta_transaction_api_1_3_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_core_9_0_54.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_el_9_0_54.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_websocket_9_0_54.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjweaver_1_9_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_checkerframework_checker_qual_3_5_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_dom4j_dom4j_2_1_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_jaxb_jaxb_runtime_2_3_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_jaxb_txw2_2_3_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_common_hibernate_commons_annotations_5_1_2_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_core_5_4_32_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_javassist_javassist_3_27_0_GA.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_jandex_2_2_3_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_4_2_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_postgresql_postgresql_42_2_24.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_mail_2_5_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_security_2_5_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_tomcat_2_5_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_2_5_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_support_5_3_12.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_5_3_12.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_orm_5_3_12.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_5_3_12.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/appuser/AppUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/appuser/AppUserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/appuser/AppUserRole.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/appuser/AppUserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/registration/RegistrationController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/registration/RegistrationRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/registration/RegistrationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/security/PasswordEncoder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/security/configuration/WebSecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/utils/EmailValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_stephenc_jcip_jcip_annotations_1_0_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_nimbusds_content_type_2_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_nimbusds_lang_tag_1_5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_nimbusds_nimbus_jose_jwt_9_10_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_nimbusds_oauth2_oidc_sdk_9_9_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__de_flapdoodle_embed_de_flapdoodle_embed_mongo_3_0_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__de_flapdoodle_embed_de_flapdoodle_embed_process_3_0_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_buffer_4_1_69_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_4_1_69_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_dns_4_1_69_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_http2_4_1_69_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_http_4_1_69_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_socks_4_1_69_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_common_4_1_69_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_handler_4_1_69_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_handler_proxy_4_1_69_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_resolver_4_1_69_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_resolver_dns_4_1_69_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_resolver_dns_native_macos_osx_x86_64_4_1_69_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_transport_4_1_69_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_transport_native_epoll_linux_x86_64_4_1_69_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_transport_native_unix_common_4_1_69_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_projectreactor_netty_reactor_netty_core_1_0_12.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_projectreactor_netty_reactor_netty_http_1_0_12.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_projectreactor_reactor_core_3_4_11.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_projectreactor_reactor_test_3_4_11.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_java_dev_jna_jna_5_6_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_java_dev_jna_jna_platform_5_6_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_compress_1_20.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_12_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mongodb_bson_4_2_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mongodb_mongodb_driver_core_4_2_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mongodb_mongodb_driver_reactivestreams_4_2_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_reactivestreams_reactive_streams_1_0_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_mongodb_reactive_2_5_6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_oauth2_client_2_5_6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_jpa_2_5_6.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_oauth2_resource_server_2_5_6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_reactor_netty_2_5_6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_jdbc_2_5_6.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_webflux_2_5_6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_aop_2_5_6.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_mongodb_3_2_6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_jpa_2_5_6.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_oauth2_client_5_5_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_oauth2_core_5_5_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_test_5_5_3.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_oauth2_jose_5_5_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_oauth2_resource_server_5_5_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webflux_5_3_12.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aspects_5_3_12.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reactive-spring/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/reactive-spring/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/common/AppUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/common/GameStatus.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/common/PlayerType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/common/TileType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/configuration/ReactiveMongoConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/controller/GameController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/controller/PlayerController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/dto/PlayerDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/entity/Board.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/entity/Game.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/entity/Player.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/initlializer/SampleDataInitializer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/repository/PlayerRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/repository/ProfileRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/service/GameService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/service/PlayerService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/reactive-spring/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/reactive-spring/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/reactive-spring/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reactive-spring/src/test/java/com/io/reactivespring/ReactiveSpringApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/reactive-spring/src/test/java/com/io/reactivespring/ReactiveSpringApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-web/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/react-web/package-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,14 +54,16 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="corretto-11" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/react-web" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="nodejs_interpreter_path" value="$APPLICATION_CONFIG_DIR$/node/node-v14.15.0-win-x64/node" />
+    <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="MTHome" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
@@ -176,7 +73,7 @@
       <recent name="com.io.reactivespring.registration" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.ReactiveSpringApplication">
+  <component name="RunManager" selected="HTTP Request.generated-requests#1">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -236,8 +133,6 @@
       <item itemvalue="HTTP Request.generated-requests#1" />
       <item itemvalue="HTTP Request.generated-requests#2" />
       <item itemvalue="JavaScript Debug.Debug Application" />
-      <item itemvalue="Maven.reactive-spring [clean,install]" />
-      <item itemvalue="Spring Boot.ReactiveSpringApplication" />
     </list>
     <recent_temporary>
       <list>
@@ -271,6 +166,8 @@
       <workItem from="1638630250283" duration="3857000" />
       <workItem from="1638734593126" duration="1253000" />
       <workItem from="1638811385244" duration="9207000" />
+      <workItem from="1638895366201" duration="188000" />
+      <workItem from="1638908898801" duration="178000" />
     </task>
     <task id="LOCAL-00001" summary="init.d">
       <created>1635525174574</created>

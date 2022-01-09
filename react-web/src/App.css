@@ -1,3 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap');
+
+html, body {
+  height: 100%;
+  font-family: Roboto, cursive;
+  background-image: linear-gradient(
+          to left top,
+          #158b9b,
+          #009aa5,
+          #00aaae,
+          #00b9b4,
+          #0cc9b8
+  );
+}
+
 .App {
   text-align: center;
 }

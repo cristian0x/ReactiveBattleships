@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Login from "./pages/login";
 import Game from "./pages/game";
 import Menu from "./pages/menu";
+import HotSeat from "./pages/hotSeat";
+import Leaderboard from "./pages/leaderboard";
 
 function App() {
   return (
@@ -12,6 +14,8 @@ function App() {
           <Route exact path="/" component={Login} />
           <Route path="/menu" component={Menu} />
           <Route path="/game" component={Game} />
+          <Route path="/hot-seat" component={HotSeat} />
+          <Route path="/leaderboard" component={Leaderboard} />
           <Route path="*">
             <div className="page404">
               <h5>404</h5>

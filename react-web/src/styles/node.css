@@ -5,16 +5,27 @@
   display: inline-block;
   margin-left: 2px;
   margin-right: 2px;
+  margin-bottom: 2px;
+  background-color: #1F7A8C;
+  border-radius: 5px;
+}
+
+.invisibleNode {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  margin-left: 2px;
+  margin-right: 2px;
   margin-bottom: -3px;
-  background-color: lightblue;
+  background-color: transparent;
 }
 
 .node-filled {
-  background-color: grey;
+  background-color: #FBD87F;
 }
 
 .node-hit {
-  background-color: red;
+  background-color: #CC2936;
 }
 
 .node-missed {

@@ -10,6 +10,7 @@ body {
   align-content: center;
   flex-wrap: wrap;
   flex-direction: column;
+  color: white;
 }
 
 .battleshipsText {
@@ -26,7 +27,7 @@ body {
   background: transparent;
   border-radius: 50px;
   border: 3px solid white;
-  margin: 0.7%;
+  margin-top: 20px;
   width: 50vh;
   height: 10vh;
   flex-wrap: wrap;
@@ -43,4 +44,12 @@ body {
   align-items: center;
   text-align: center;
   margin-top: 5%;
+}
+
+.columnLogIn {
+  margin: 3% 10%;
+  height: 30%;
+  padding-top: 10px;
+  flex: 1;
+  flex-direction: row;
 }
