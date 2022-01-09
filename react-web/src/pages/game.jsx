@@ -4,6 +4,8 @@ import "../styles/game.css";
 import { automaticShipLayout } from "../functions/automaticShipLayout.js";
 import { aiAlgorithm } from "../functions/aiAlgorithm";
 import { useState } from "react/cjs/react.development";
+import { onHover } from "../AnimationVariants/animationVariants";
+import { motion } from "framer-motion";
 
 const createGrid = () => {
   const grid = [];
@@ -232,7 +234,7 @@ const Game = () => {
         <div className="gridPlayer">
           {gridPlayer.map((row, rowIdx) => {
             return (
-              <div key={rowIdx}>
+              <div className="gridRowAI" key={rowIdx}>
                 {row.map((node, nodeIdx) => {
                   const {
                     col,
@@ -264,7 +266,7 @@ const Game = () => {
         <div className="gridOpponent">
           {gridOpponent.map((row, rowIdx) => {
             return (
-              <div key={rowIdx}>
+              <div className="gridRowAI" key={rowIdx}>
                 {row.map((node, nodeIdx) => {
                   const {
                     col,
@@ -318,7 +320,10 @@ const Game = () => {
         <option value="medium">medium</option>
         <option value="hard">hard</option>
       </select>
-      <button
+      <motion.button
+        className="rotateButton"
+        whileHover={onHover.hover}
+        onTap={{ scale: 0.9 }}
         disabled={disable}
         onClick={() => {
           setGridPlayer(resetShipLayout());
@@ -342,8 +347,11 @@ const Game = () => {
         }}
       >
         Generate ships
-      </button>
-      <button
+      </motion.button>
+      <motion.button
+        className="rotateButton"
+        whileHover={onHover.hover}
+        onTap={{ scale: 0.9 }}
         onClick={() => {
           setDisable(false);
           setGridPlayer(resetShipLayout());
@@ -354,8 +362,11 @@ const Game = () => {
         }}
       >
         Reset ships
-      </button>
-      <button
+      </motion.button>
+      <motion.button
+        className="rotateButton"
+        whileHover={onHover.hover}
+        onTap={{ scale: 0.9 }}
         onClick={() => {
           if (
             !areGridsFilled ||
@@ -385,7 +396,7 @@ const Game = () => {
         }}
       >
         Start a game!
-      </button>
+      </motion.button>
       <div className="showSunkenShip"></div>
     </>
   );

@@ -36,3 +36,30 @@ export function checkIfTheGameEnded(
   }
   return [false, ""];
 }
+
+//---------------------------------------------------------------------------------------//
+
+export const checkIfTheGameEndedHotSeat = (playerGrid, opponentGrid) => {
+  let playerCount = 0;
+  let opponentCount = 0;
+
+  for (let i = 0; i < 10; i++) {
+    for (let j =0; j < 10; j++) {
+      if (playerGrid[i][j].isHit) {
+        playerCount += 1
+      }
+
+      if (opponentGrid[i][j].isHit) {
+        opponentCount += 1
+      }
+    }
+  }
+
+  if (playerCount === 20) {
+    return [true, "opponentWon"];
+  }
+  if (opponentCount === 20) {
+    return [true, "playerWon"];
+  }
+  return [false, ""];
+};

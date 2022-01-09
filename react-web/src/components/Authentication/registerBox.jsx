@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react/cjs/react.development";
-import "../styles/login.css";
+import "../../styles/login.css";
 
 const RegisterBox = () => {
   const [login, setLogin] = useState("");

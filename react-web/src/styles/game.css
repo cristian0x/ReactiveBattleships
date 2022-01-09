@@ -4,6 +4,7 @@
   align-content: center;
   flex-wrap: wrap;
   margin: 5%;
+  color: white;
 }
 
 .gridPlayer {
@@ -19,4 +20,9 @@
 .whoseTurn {
   flex-wrap: wrap;
   margin-top: 2%;
+  color: white;
+}
+
+.gridRowAI {
+  margin-bottom: 2px;
 }
