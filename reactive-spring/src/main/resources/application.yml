@@ -5,7 +5,7 @@ server:
 
 spring:
   datasource:
-    password: WASZE_HASLO_DO_POSTGRESA!!!!!!!!!!!!!!
+    password: yourPassword!!!!!!!!
     url: jdbc:postgresql://localhost:5432/registration
     username: postgres
   jpa:

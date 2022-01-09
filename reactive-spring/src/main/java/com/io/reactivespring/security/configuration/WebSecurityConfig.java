@@ -1,6 +1,6 @@
 package com.io.reactivespring.security.configuration;
 
-import com.io.reactivespring.appuser.AppUserService;
+import com.io.reactivespring.user.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,14 +19,14 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
-    private final AppUserService appUserService;
+    private final UserService userService;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf()
                 .disable()
                 .authorizeRequests()
-                .antMatchers("/api/v1/registration/**")
+                .antMatchers("/**")
                 .permitAll()
                 .anyRequest()
                 .authenticated()
@@ -43,7 +43,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public DaoAuthenticationProvider daoAuthenticationProvider() {
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
         provider.setPasswordEncoder(this.bCryptPasswordEncoder);
-        provider.setUserDetailsService(this.appUserService);
+        provider.setUserDetailsService(this.userService);
 
         return provider;
     }

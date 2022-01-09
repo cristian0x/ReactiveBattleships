@@ -1,5 +1,6 @@
-package com.io.reactivespring.appuser;
+package com.io.reactivespring.user;
 
+import com.io.reactivespring.enums.UserRole;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,15 +15,14 @@ import java.util.Collections;
 
 @Getter
 @Setter
-@EqualsAndHashCode
 @NoArgsConstructor
 @Entity
 @Table(name = "registration")
-public class AppUser implements UserDetails {
+public class User implements UserDetails {
 
     @Id
-    @SequenceGenerator(name="student_sequence", sequenceName = "student_sequence", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "student_sequence")
+    @SequenceGenerator(name="registration_sequence", sequenceName = "registration_sequence", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "registration_sequence")
     private Long id;
     private String firstname;
     private String lastname;
@@ -30,21 +30,32 @@ public class AppUser implements UserDetails {
     private String email;
     private String password;
     @Enumerated(EnumType.STRING)
-    private AppUserRole appUserRole;
+    private UserRole userRole;
     private Boolean locked;
     private Boolean enabled;
+    private Long gamesPlayed;
+    private Long gamesWon;
+    private Long allShots;
+    private Long hits;
 
-    public AppUser(String firstname, String lastname, String email,  String password, AppUserRole appUserRole) {
+    public User(String firstname, String lastname, String nickname, String email, String password, UserRole userRole) {
         this.firstname = firstname;
         this.lastname = lastname;
+        this.nickname = nickname;
         this.email = email;
         this.password = password;
-        this.appUserRole = appUserRole;
+        this.userRole = userRole;
+        this.locked = false;
+        this.enabled = false;
+        this.gamesPlayed = 0L;
+        this.gamesWon = 0L;
+        this.allShots = 0L;
+        this.hits = 0L;
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        SimpleGrantedAuthority authority = new SimpleGrantedAuthority(appUserRole.name());
+        SimpleGrantedAuthority authority = new SimpleGrantedAuthority(userRole.name());
         return Collections.singletonList(authority);
     }
 
@@ -76,5 +87,15 @@ public class AppUser implements UserDetails {
     @Override
     public boolean isEnabled() {
         return this.enabled;
+    }
+
+    @Override
+    public String toString() {
+        return "[User={" +
+                "firstname=" + this.firstname + ", " +
+                "lastname=" + this.lastname + ", " +
+                "nickname=" + this.nickname + ", " +
+                "email=" + this.email + ", " +
+                "}]";
     }
 }
