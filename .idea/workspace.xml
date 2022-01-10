@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="070921f3-6a97-4d94-8481-8188e04109fe" name="Default Changelist" comment="Backend added" />
+    <list default="true" id="070921f3-6a97-4d94-8481-8188e04109fe" name="Default Changelist" comment="Backend added">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-web/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-web/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-web/src/components/Authentication/loginBox.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react-web/src/components/Authentication/loginBox.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-web/src/components/Authentication/registerBox.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react-web/src/components/Authentication/registerBox.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-web/src/pages/login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react-web/src/pages/login.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-web/src/pages/menu.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react-web/src/pages/menu.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-web/src/styles/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/react-web/src/styles/login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reactive-spring/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/reactive-spring/src/main/resources/application.yml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,6 +45,9 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="20BfSuXNbgSoHqaWNsPFZFd0tor" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -51,15 +64,18 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="corretto-11" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/react-web" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="MTHome" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="ReactorSettings">
@@ -70,7 +86,7 @@
       <recent name="com.io.reactivespring.registration" />
     </key>
   </component>
-  <component name="RunManager" selected="Maven.reactive-spring [clean,install]">
+  <component name="RunManager" selected="Spring Boot.ReactiveSpringApplication">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -168,6 +184,9 @@
       <workItem from="1638895366201" duration="188000" />
       <workItem from="1638908898801" duration="178000" />
       <workItem from="1641767631095" duration="227000" />
+      <workItem from="1641846358184" duration="108000" />
+      <workItem from="1641846485299" duration="633000" />
+      <workItem from="1641848172857" duration="919000" />
     </task>
     <task id="LOCAL-00001" summary="init.d">
       <created>1635525174574</created>
@@ -213,7 +232,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init.d" />

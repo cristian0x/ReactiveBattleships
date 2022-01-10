@@ -5,6 +5,12 @@
   margin-left: 40%;
 }
 
+.loginDivTest {
+  margin-top: 10%;
+  margin-left: 40%;
+  background: #CC2936;
+}
+
 .loginDiv input {
   display: block;
 }
