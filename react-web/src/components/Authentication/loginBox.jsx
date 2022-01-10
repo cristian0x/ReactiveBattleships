@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../../styles/login.css";
 
-const LoginBox = () => {
+const LoginBox = ({ setPlayerData, playerData }) => {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
 
@@ -11,6 +11,24 @@ const LoginBox = () => {
 
   function onPasswordChange(e) {
     setPassword(e.target.value);
+  }
+
+  function handleLogin(e) {
+    e.preventDefault();
+    setPlayerData([
+      {
+        login: login,
+        password: password,
+      },
+      true,
+    ]);
+  }
+
+  function handleLogOut(e) {
+    e.preventDefault();
+    setLogin("")
+    setPassword("")
+    setPlayerData([{}, false]);
   }
 
   return (
@@ -33,7 +51,21 @@ const LoginBox = () => {
         value={password}
         onChange={onPasswordChange}
       />
-      <input type="submit" className="fadeIn fourth" value="Log In" />
+      {!playerData[1] ? (
+        <input
+          type="button"
+          className="fadeIn fourth"
+          value="Log In"
+          onClick={handleLogin}
+        />
+      ) : (
+        <input
+          type="button"
+          className="fadeIn fourth"
+          value="Log out"
+          onClick={handleLogOut}
+        />
+      )}
     </form>
   );
 };
