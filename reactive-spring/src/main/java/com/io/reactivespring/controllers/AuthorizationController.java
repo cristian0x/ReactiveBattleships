@@ -29,7 +29,7 @@ public class AuthorizationController {
 
     @GetMapping(path="login")
     public UserDTO login(@RequestBody LoginRequest request) {
-        return this.userService.login(request);
+        return this.registrationService.login(request);
     }
 
     @GetMapping(path="logout")

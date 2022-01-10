@@ -1,6 +1,5 @@
 package com.io.reactivespring.user;
 
-import com.io.reactivespring.exceptions.AuthorizationException;
 import com.io.reactivespring.registration.token.ConfirmationToken;
 import com.io.reactivespring.registration.token.ConfirmationTokenService;
 import com.io.reactivespring.utils.EmailValidator;
@@ -18,7 +17,6 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -65,41 +63,13 @@ public class UserService implements UserDetailsService {
         return token;
     }
 
-    public UserDTO login(final LoginRequest request) {
-        LOGGER.info("login() user trying to log in");
-        if (!emailValidator.test(request.getEmail())) {
-            LOGGER.info("login() login - {}, isn't an email", request.getEmail());
-            throw new AuthorizationException.InvalidEmailException(request.getEmail());
-        }
-
-        LOGGER.debug("login() looking for user with email - {}", request.getEmail());
-        final Optional<User> userToCheckPassword = this.userRepository.findByEmail(request.getEmail());
-
-        if (userToCheckPassword.isEmpty()) {
-            LOGGER.info("login() there's no user with email - {}", request.getEmail());
-            throw new AuthorizationException.UserNotFoundException(request.getEmail());
-        }
-
-        final User notVerifiedUser = userToCheckPassword.get();
-
-        if (!passwordEncoder.matches(request.getPassword(), notVerifiedUser.getPassword())) {
-            LOGGER.info("login() wrong password for user with email - {}", request.getEmail());
-            throw new AuthorizationException.IncorrectPasswordException();
-        }
-
-        LOGGER.debug("login() login process passed successfully");
-        return userToUserDTO(notVerifiedUser);
-    }
-
-
     public void enableAppUser(String email) {
         this.userRepository.enableAppUser(email);
     }
 
     public UserDTO getUserProfile(final Authentication authentication,
                                   final String idOrNickname) {
-        LOGGER.info("getUserProfile() getting user with params authentication header - {}, idOrNickname - {}",
-                authentication.getName(), idOrNickname);
+        // LOGGER.info("getUserProfile() getting user with params authentication header - {}, idOrNickname - {}", authentication.getName(), idOrNickname);
         if (!Objects.isNull(idOrNickname)) {
             LOGGER.debug("getUserProfile() idOrNickname value is not null");
             try {
@@ -115,7 +85,7 @@ public class UserService implements UserDetailsService {
     }
 
     public List<UserDTO> getAllUsers(final Authentication authentication) {
-        final List<User> userList = this.userRepository.findTop100ByOrderByGamesWon();
+        final List<User> userList = this.userRepository.findTop5ByOrderByGamesWon();
         return userList.stream()
                 .map(UserMapper::userToUserDTO)
                 .filter(userDTO -> !Objects.isNull(userDTO))
@@ -124,7 +94,7 @@ public class UserService implements UserDetailsService {
 
     public String updateProfile(final Authentication authentication,
                                 final ProfileUpdateRequest updateRequest) {
-        LOGGER.info("updateProfile() for user with email {}", authentication.getName());
+        // LOGGER.info("updateProfile() for user with email {}", authentication.getName());
         // this.userRepository.incrementGamesWon(authentication.getName(), updateRequest.getIsWin(), updateRequest.getNumberOfShots(), updateRequest.getSuccessfulHits());
         this.userRepository.updateProfile("test@test.pl", updateRequest.getIsWin(), updateRequest.getNumberOfShots(), updateRequest.getSuccessfulHits());
 

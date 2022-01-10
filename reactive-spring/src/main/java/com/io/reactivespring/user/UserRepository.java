@@ -33,5 +33,5 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Query("DELETE FROM User a WHERE a.email = ?1")
     void deleteAllByEmail(String name);
 
-    List<User> findTop100ByOrderByGamesWon();
+    List<User> findTop5ByOrderByGamesWon();
 }
