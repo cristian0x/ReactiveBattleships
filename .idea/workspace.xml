@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="070921f3-6a97-4d94-8481-8188e04109fe" name="Default Changelist" comment="Backend added" />
+    <list default="true" id="070921f3-6a97-4d94-8481-8188e04109fe" name="Default Changelist" comment="Backend added">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/controllers/AuthorizationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/controllers/AuthorizationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/registration/RegistrationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/registration/RegistrationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/user/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/user/UserDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/user/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/user/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/user/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/user/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reactive-spring/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/reactive-spring/src/main/resources/application.yml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,6 +34,16 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitRewordedCommitMessages">
+    <option name="commitMessagesMapping">
+      <RewordedCommitMessageMapping>
+        <option name="originalMessage" value="Backend added" />
+        <option name="rewordedMessage" value="Backend added" />
+      </RewordedCommitMessageMapping>
+    </option>
+    <option name="currentCommit" value="1" />
+    <option name="onto" value="6714695597df0146eca839a18b3b7fa45f4c2411" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -58,6 +76,9 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="MTHome" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -70,14 +91,16 @@
       <recent name="com.io.reactivespring.registration" />
     </key>
   </component>
-  <component name="RunManager" selected="Maven.reactive-spring [clean,install]">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+  <component name="RunManager" selected="Spring Boot.ReactiveSpringApplication">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -168,6 +191,8 @@
       <workItem from="1638895366201" duration="188000" />
       <workItem from="1638908898801" duration="178000" />
       <workItem from="1641767631095" duration="227000" />
+      <workItem from="1641767895933" duration="785000" />
+      <workItem from="1641843118579" duration="4287000" />
     </task>
     <task id="LOCAL-00001" summary="init.d">
       <created>1635525174574</created>
@@ -197,7 +222,14 @@
       <option name="project" value="LOCAL" />
       <updated>1641767856809</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Backend added">
+      <created>1641768019895</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1641768019895</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

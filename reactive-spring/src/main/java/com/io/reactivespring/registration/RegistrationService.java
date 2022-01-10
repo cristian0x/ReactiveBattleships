@@ -1,28 +1,36 @@
 package com.io.reactivespring.registration;
 
-import com.io.reactivespring.user.User;
+import com.io.reactivespring.user.*;
 import com.io.reactivespring.enums.UserRole;
-import com.io.reactivespring.user.UserService;
 import com.io.reactivespring.email.EmailSender;
 import com.io.reactivespring.exceptions.AuthorizationException;
 import com.io.reactivespring.registration.token.ConfirmationToken;
 import com.io.reactivespring.registration.token.ConfirmationTokenService;
 import com.io.reactivespring.utils.EmailValidator;
 import lombok.AllArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
+
+import static com.io.reactivespring.utils.UserMapper.userToUserDTO;
 
 @Service
 @AllArgsConstructor
 public class RegistrationService {
 
     private static final String EMAIL_LINK = "http://localhost:8080/auth/registration/confirm?token=%s";
+    private static final Logger LOGGER = LoggerFactory.getLogger(RegistrationService.class);
 
     private final UserService userService;
     private final ConfirmationTokenService confirmationTokenService;
     private final EmailSender emailSender;
+    private final UserRepository userRepository;
+    private final BCryptPasswordEncoder passwordEncoder;
 
     private final EmailValidator emailValidator;
 
@@ -36,6 +44,34 @@ public class RegistrationService {
 
         return token;
     }
+
+    public UserDTO login(final LoginRequest request) {
+        LOGGER.info("login() user trying to log in");
+        if (!emailValidator.test(request.getEmail())) {
+            LOGGER.info("login() login - {}, isn't an email", request.getEmail());
+            throw new AuthorizationException.InvalidEmailException(request.getEmail());
+        }
+
+        LOGGER.debug("login() looking for user with email - {}", request.getEmail());
+        final Optional<User> userToCheckPassword = this.userRepository.findByEmail(request.getEmail());
+
+        if (userToCheckPassword.isEmpty()) {
+            LOGGER.info("login() there's no user with email - {}", request.getEmail());
+            throw new AuthorizationException.UserNotFoundException(request.getEmail());
+        }
+
+        final User notVerifiedUser = userToCheckPassword.get();
+
+        if (!passwordEncoder.matches(request.getPassword(), notVerifiedUser.getPassword())) {
+            LOGGER.info("login() wrong password for user with email - {}", request.getEmail());
+            throw new AuthorizationException.IncorrectPasswordException();
+        }
+
+        LOGGER.debug("login() login process passed successfully");
+        return userToUserDTO(notVerifiedUser);
+    }
+
+
 
     @Transactional
     public String confirmToken(String token) {
