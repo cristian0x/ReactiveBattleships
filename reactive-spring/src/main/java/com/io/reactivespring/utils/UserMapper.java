@@ -1,7 +1,7 @@
 package com.io.reactivespring.utils;
 
 import com.io.reactivespring.user.User;
-import com.io.reactivespring.user.UserDTO;
+import com.io.reactivespring.dto.UserDTO;
 
 import java.util.Objects;
 

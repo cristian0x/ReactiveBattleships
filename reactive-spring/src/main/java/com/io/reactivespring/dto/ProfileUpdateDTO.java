@@ -1,4 +1,4 @@
-package com.io.reactivespring.user;
+package com.io.reactivespring.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -9,7 +9,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @EqualsAndHashCode
 @ToString
-public class ProfileUpdateRequest {
+public class ProfileUpdateDTO {
     private final Long isWin;
     private final Long numberOfShots;
     private final Long successfulHits;

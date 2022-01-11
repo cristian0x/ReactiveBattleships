@@ -1,11 +1,11 @@
-package com.io.reactivespring.user;
+package com.io.reactivespring.dto;
 
 import lombok.Getter;
 import lombok.AllArgsConstructor;
 
 @Getter
 @AllArgsConstructor
-public class LoginRequest {
+public class LoginDTO {
     private final String email;
     private final String password;
 }

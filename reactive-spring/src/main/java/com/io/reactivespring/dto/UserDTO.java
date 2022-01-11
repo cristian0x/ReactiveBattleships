@@ -1,4 +1,4 @@
-package com.io.reactivespring.user;
+package com.io.reactivespring.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -1,5 +1,6 @@
 package com.io.reactivespring.savedgames;
 
+import com.io.reactivespring.dto.SavedGameDTO;
 import com.io.reactivespring.user.User;
 import com.io.reactivespring.user.UserRepository;
 import com.io.reactivespring.exceptions.AuthorizationException;
@@ -22,17 +23,17 @@ public class SavedGamesService {
     private final SavedGamesRepository savedGamesRepository;
     private final UserRepository userRepository;
 
-    public String saveGame(final SavedGameRequest savedGameRequest,
+    public String saveGame(final SavedGameDTO savedGameDTO,
                            final Authentication authentication) {
 
 //        if (!authentication.getName().equals(savedGameRequest.getSavedBy())) {
-        if (!savedGameRequest.getSavedBy().equals("test@test.pl")) {
+        if (!savedGameDTO.getSavedBy().equals("test@test.pl")) {
             LOGGER.warn("saveGame() logged user is different than one that saves this game {}", authentication.getName());
             throw new SavedGamesException.IncorrectIdsException();
         }
 
-        this.savedGamesRepository.save(new SavedGame(savedGameRequest.getFirstPlayerId(), savedGameRequest.getSecondPlayerId(),
-                                                        savedGameRequest.getSavedMoves(), savedGameRequest.getSavedBy()));
+        this.savedGamesRepository.save(new SavedGame(savedGameDTO.getFirstPlayerId(), savedGameDTO.getSecondPlayerId(),
+                                                        savedGameDTO.getSavedMoves(), savedGameDTO.getSavedBy()));
 
         LOGGER.info("saveGame() Game saved successfully");
         return "Saving game successful";

@@ -1,10 +1,9 @@
 package com.io.reactivespring.controllers;
 
-import com.io.reactivespring.user.LoginRequest;
-import com.io.reactivespring.registration.RegistrationRequest;
+import com.io.reactivespring.dto.LoginDTO;
+import com.io.reactivespring.dto.RegistrationDTO;
 import com.io.reactivespring.registration.RegistrationService;
-import com.io.reactivespring.user.UserDTO;
-import com.io.reactivespring.user.UserService;
+import com.io.reactivespring.dto.UserDTO;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
@@ -15,10 +14,9 @@ import org.springframework.web.bind.annotation.*;
 public class AuthorizationController {
 
     private final RegistrationService registrationService;
-    private final UserService userService;
 
     @PostMapping(path="registration")
-    public String register(@RequestBody RegistrationRequest request) {
+    public String register(@RequestBody RegistrationDTO request) {
         return this.registrationService.register(request);
     }
 
@@ -28,7 +26,7 @@ public class AuthorizationController {
     }
 
     @GetMapping(path="login")
-    public UserDTO login(@RequestBody LoginRequest request) {
+    public UserDTO login(@RequestBody LoginDTO request) {
         return this.registrationService.login(request);
     }
 
