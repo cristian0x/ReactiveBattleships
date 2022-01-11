@@ -4,7 +4,7 @@ import "../styles/game.css";
 import { automaticShipLayout } from "../functions/automaticShipLayout.js";
 import { aiAlgorithm } from "../functions/aiAlgorithm";
 import { useState } from "react/cjs/react.development";
-import { onHover } from "../AnimationVariants/animationVariants";
+import { onHover } from "../animationVariants/animationVariants";
 import { motion } from "framer-motion";
 
 const createGrid = () => {

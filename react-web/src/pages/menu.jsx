@@ -7,7 +7,7 @@ import {
   leftBoxVariants,
   rightBoxVariants,
   onHover,
-} from "../AnimationVariants/animationVariants";
+} from "../animationVariants/animationVariants";
 import Login from "./login";
 
 const Menu = () => {
@@ -19,6 +19,7 @@ const Menu = () => {
   return (
     <div className="mainContainer">
       <Login setPlayerData={setPlayer1Data} playerData={player1Data}/>
+      {/*context provider dla danych uzytkownikow*/}
       <div className="column">
         <motion.h5
           className="battleshipsText"

@@ -4,7 +4,7 @@ import { useCycle } from "framer-motion";
 import { playerMove } from "../../functions/HotSeat/playerMove";
 import { placeShips } from "../../functions/HotSeat/placeShips";
 import { motion, AnimatePresence } from "framer-motion";
-import { onHover, pageSwitch } from "../../AnimationVariants/animationVariants";
+import { onHover, pageSwitch } from "../../animationVariants/animationVariants";
 
 const GameBoard = ({
   whoseTurn,
@@ -17,6 +17,7 @@ const GameBoard = ({
   setHasAlreadyMoved,
   hasGameEnded,
   setHasGameEnded,
+  setGameMovesInOrder
 }) => {
   const [lastShipID, setLastShipID] = useCycle(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
 
@@ -104,7 +105,9 @@ const GameBoard = ({
                         whoseTurn[0],
                         whoseTurn[11],
                         whoseTurn[12],
-                        whoseTurn[13]
+                        whoseTurn[13],
+                        whoseTurn[14],
+                        setGameMovesInOrder
                       );
                     }}
                   >
