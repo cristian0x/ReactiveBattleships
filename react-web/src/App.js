@@ -4,6 +4,7 @@ import Game from "./pages/game";
 import Menu from "./pages/menu";
 import HotSeat from "./pages/hotSeat";
 import Leaderboard from "./pages/leaderboard";
+import SavedSeaBattles from "./pages/savedSeaBattles";
 import { useState } from "react";
 import { PlayersContext } from "./providers/PlayersContext";
 
@@ -22,13 +23,14 @@ function App() {
             <Route path="/game" component={Game} />
             <Route path="/hot-seat" component={HotSeat} />
             <Route path="/leaderboard" component={Leaderboard} />
-            <Route path="*">
-              <div className="page404">
-                <h5>404</h5>
-                <h5>WE ARE SORRY, BUT THE PAGE YOU REQUESTED WAS NOT FOUND</h5>
-              </div>
-            </Route>
+            <Route path="/saved-sea-battles" component={SavedSeaBattles} />
           </PlayersContext.Provider>
+          <Route path="*">
+            <div className="page404">
+              <h5>404</h5>
+              <h5>WE ARE SORRY, BUT THE PAGE YOU REQUESTED WAS NOT FOUND</h5>
+            </div>
+          </Route>
         </Switch>
       </Router>
     </div>

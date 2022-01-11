@@ -26,3 +26,9 @@
 .gridRowAI {
   margin-bottom: 2px;
 }
+
+#showSunkenShip {
+  color: white;
+  margin-top: 2%;
+  font-size: xx-large;
+}
