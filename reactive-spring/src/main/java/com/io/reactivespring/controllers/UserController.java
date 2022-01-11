@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping(path="/user")
 @AllArgsConstructor
 public class UserController {
@@ -75,10 +76,5 @@ public class UserController {
     @DeleteMapping("deleteUser")
     public String deleteUser(final Authentication authentication) {
         return this.userService.deleteUser(authentication);
-    }
-
-    @GetMapping("check")
-    public String siema(Authentication authentication) {
-        return authentication.getName();
     }
 }
