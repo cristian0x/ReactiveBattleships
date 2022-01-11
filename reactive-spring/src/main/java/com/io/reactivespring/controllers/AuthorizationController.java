@@ -25,7 +25,7 @@ public class AuthorizationController {
         return this.registrationService.confirmToken(token);
     }
 
-    @GetMapping(path="login")
+    @PostMapping(path="login")
     public UserDTO login(@RequestBody LoginDTO request) {
         return this.registrationService.login(request);
     }

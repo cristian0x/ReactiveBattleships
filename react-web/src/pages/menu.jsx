@@ -17,14 +17,6 @@ const Menu = () => {
   const { player1Data, setPlayer1Data, player2Data, setPlayer2Data } =
     useContext(PlayersContext);
 
-  //test function to check if user context works fine
-  const testContext = () => {
-    console.log(player1Data + player2Data);
-    setPlayer1Data([{ email: "test@test.pl", id: 1 }, true]);
-    setPlayer2Data([{ email: "test@test.pl", id: 2 }, true]);
-    console.log(player1Data + player2Data);
-  };
-
   return (
     <div className="mainContainer">
       <Login setPlayerData={setPlayer1Data} playerData={player1Data} />
@@ -103,7 +95,6 @@ const Menu = () => {
           >
             <h5 className="chooseModeText">Saved sea battles</h5>
           </motion.div>
-          <button onClick={() => testContext()}> Test login </button>
         </div>
       <Login setPlayerData={setPlayer2Data} playerData={player2Data} />
     </div>
