@@ -1,5 +1,8 @@
 package com.io.reactivespring.registration;
 
+import com.io.reactivespring.dto.LoginDTO;
+import com.io.reactivespring.dto.RegistrationDTO;
+import com.io.reactivespring.dto.UserDTO;
 import com.io.reactivespring.user.*;
 import com.io.reactivespring.enums.UserRole;
 import com.io.reactivespring.email.EmailSender;
@@ -34,7 +37,7 @@ public class RegistrationService {
 
     private final EmailValidator emailValidator;
 
-    public String register(final RegistrationRequest request) {
+    public String register(final RegistrationDTO request) {
         if(!emailValidator.test(request.getEmail())) {
             throw new AuthorizationException.InvalidEmailException(request.getEmail());
         }
@@ -45,7 +48,7 @@ public class RegistrationService {
         return token;
     }
 
-    public UserDTO login(final LoginRequest request) {
+    public UserDTO login(final LoginDTO request) {
         LOGGER.info("login() user trying to log in");
         if (!emailValidator.test(request.getEmail())) {
             LOGGER.info("login() login - {}, isn't an email", request.getEmail());

@@ -47,4 +47,8 @@ public class AuthorizationException extends RuntimeException {
             super("Incorrect password!");
         }
     }
+
+    public static class EmailValidationException extends AuthorizationException {
+        public EmailValidationException() { super("Email for logged user and user that he wants to change password for doesn't match!"); }
+    }
 }

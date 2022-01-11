@@ -1,5 +1,6 @@
-package com.io.reactivespring.savedgames;
+package com.io.reactivespring.dto;
 
+import com.io.reactivespring.savedgames.SavedGame;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -9,7 +10,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @EqualsAndHashCode
 @ToString
-public class SavedGameRequest {
+public class SavedGameDTO {
     private final Long firstPlayerId;
     private final Long secondPlayerId;
     private final String savedMoves;

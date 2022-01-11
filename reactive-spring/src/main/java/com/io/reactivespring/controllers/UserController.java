@@ -1,10 +1,11 @@
 package com.io.reactivespring.controllers;
 
+import com.io.reactivespring.dto.ChangePasswordDTO;
 import com.io.reactivespring.savedgames.SavedGame;
-import com.io.reactivespring.savedgames.SavedGameRequest;
+import com.io.reactivespring.dto.SavedGameDTO;
 import com.io.reactivespring.savedgames.SavedGamesService;
-import com.io.reactivespring.user.ProfileUpdateRequest;
-import com.io.reactivespring.user.UserDTO;
+import com.io.reactivespring.dto.ProfileUpdateDTO;
+import com.io.reactivespring.dto.UserDTO;
 import com.io.reactivespring.user.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.Authentication;
@@ -26,9 +27,9 @@ public class UserController {
     }
 
     @PostMapping("savedGames/add")
-    public String saveNewGame(@RequestBody SavedGameRequest savedGameRequest,
+    public String saveNewGame(@RequestBody SavedGameDTO savedGameDTO,
                               final Authentication authentication) {
-        return this.savedGamesService.saveGame(savedGameRequest, authentication);
+        return this.savedGamesService.saveGame(savedGameDTO, authentication);
     }
 
     @GetMapping("savedGames/{id}")
@@ -61,14 +62,14 @@ public class UserController {
 
     @GetMapping("updateProfile")
     public String updateProfile(final Authentication authentication,
-                                @RequestBody ProfileUpdateRequest updateRequest) {
+                                @RequestBody ProfileUpdateDTO updateRequest) {
         return this.userService.updateProfile(authentication, updateRequest);
     }
 
-    @GetMapping("updatePassword")
+    @PostMapping("updatePassword")
     public String updatePassword(final Authentication authentication,
-                                 @RequestParam String newPassword) {
-        return this.userService.updatePassword(authentication, newPassword);
+                                 @RequestBody ChangePasswordDTO changePasswordDTO) {
+        return this.userService.updatePassword(authentication, changePasswordDTO);
     }
 
     @DeleteMapping("deleteUser")

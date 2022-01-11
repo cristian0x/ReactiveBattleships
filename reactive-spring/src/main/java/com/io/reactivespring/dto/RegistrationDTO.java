@@ -1,4 +1,4 @@
-package com.io.reactivespring.registration;
+package com.io.reactivespring.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -9,7 +9,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @EqualsAndHashCode
 @ToString
-public class RegistrationRequest {
+public class RegistrationDTO {
     private final String firstname;
     private final String lastname;
     private final String nickname;
