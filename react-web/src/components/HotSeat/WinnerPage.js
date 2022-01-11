@@ -9,6 +9,7 @@ const WinnerPage = ({ hasGameEnded, gameMovesInOrder, player1Data, player2Data }
 
   async function handlePostGame(e) {
     e.preventDefault()
+    console.log(gameMovesInOrder)
     await saveGame(player1Data, player2Data, gameMovesInOrder)
   }
 

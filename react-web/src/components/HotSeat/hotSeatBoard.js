@@ -6,7 +6,7 @@ import GameBoard from "./GameBoard";
 import { useCycle } from "framer-motion";
 import PlayerChange from "./PlayerChange";
 
-const HotSeatBoard = ({ hasGameEnded, setHasGameEnded, setGameMovesInOrder, player1Data}) => {
+const HotSeatBoard = ({ hasGameEnded, setHasGameEnded, setGameMovesInOrder, player1Data, player2Data}) => {
   const [isBoardVisible, setIsBoardVisible] = useCycle(true, false);
 
   const [hasAlreadyMoved, setHasAlreadyMoved] = useCycle([false, 0], [true, 0]);
@@ -53,7 +53,7 @@ const HotSeatBoard = ({ hasGameEnded, setHasGameEnded, setGameMovesInOrder, play
 
   const [whoseTurn, setWhoseTurn] = useCycle(
     [
-      player1Data[0].email, //username
+      player1Data[0].nickname,
       player1Grid,
       setPlayer1Grid,
       player1ShootingBoard,
@@ -70,7 +70,7 @@ const HotSeatBoard = ({ hasGameEnded, setHasGameEnded, setGameMovesInOrder, play
       player2MovesInOrder
     ],
     [
-      player1Data[0].email, //username
+      player2Data[0].nickname,
       player2Grid,
       setPlayer2Grid,
       player2ShootingBoard,
