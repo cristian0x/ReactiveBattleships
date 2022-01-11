@@ -1,6 +1,6 @@
 import React, {useContext, useState} from "react";
 import "../styles/menu.css";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
   titleVariants,

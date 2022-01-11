@@ -86,7 +86,15 @@ export function aiAlgorithm(
 
     switch (difficultyLevelForPlayer) {
       case "easy":
-        while (isShotOnTarget) {
+        while (
+          isShotOnTarget &&
+          !checkIfTheGameEnded(
+            gridPlayer,
+            gridOpponent,
+            playerFilledCells,
+            opponentFilledCells
+          )[0]
+        ) {
           while (true) {
             var randomRowPlayer = getRandomInt(0, 9);
             var randomColPlayer = getRandomInt(0, 9);
@@ -142,7 +150,15 @@ export function aiAlgorithm(
         var itemPlayer;
         var numbers;
 
-        while (isShotOnTarget) {
+        while (
+          isShotOnTarget &&
+          !checkIfTheGameEnded(
+            gridPlayer,
+            gridOpponent,
+            playerFilledCells,
+            opponentFilledCells
+          )[0]
+        ) {
           while (countOfShotsOnTarget == 0) {
             var randomRowPlayer = getRandomInt(0, 9);
             var randomColPlayer = getRandomInt(0, 9);
@@ -161,7 +177,6 @@ export function aiAlgorithm(
             while (true) {
               numbers = [0, 1, 2, 3];
               var randomNumber = numbers[getRandomInt(0, numbers.length - 1)];
-              console.log(randomNumber, countOfShotsOnTarget);
               switch (randomNumber) {
                 case 0: // up
                   previousRandomRowPlayer -= 1;
@@ -169,7 +184,6 @@ export function aiAlgorithm(
                     previousRandomRowPlayer,
                     previousRandomColPlayer,
                   ];
-                  console.log(itemPlayer);
                   case0 = true;
                   break;
                 case 1: // down
@@ -178,7 +192,6 @@ export function aiAlgorithm(
                     previousRandomRowPlayer,
                     previousRandomColPlayer,
                   ];
-                  console.log(itemPlayer);
                   case1 = true;
                   break;
                 case 2: // right
@@ -187,7 +200,6 @@ export function aiAlgorithm(
                     previousRandomRowPlayer,
                     previousRandomColPlayer,
                   ];
-                  console.log(itemPlayer);
                   case2 = true;
                   break;
                 case 3: // left
@@ -196,7 +208,6 @@ export function aiAlgorithm(
                     previousRandomRowPlayer,
                     previousRandomColPlayer,
                   ];
-                  console.log(itemPlayer);
                   case3 = true;
                   break;
                 default:
@@ -304,13 +315,13 @@ export function aiAlgorithm(
               countOfShotsOnTarget = 0;
               gridPlayer[itemPlayer[0]][itemPlayer[1]].missed = true;
               nodesHitInOrderForPlayer.push(itemPlayer);
-              hits.push([itemPlayer[0], itemPlayer[1], "player", 0]);
+              hits.push([itemPlayer[0], itemPlayer[1], "player", 0, 0, ""]);
             } else {
               isShotOnTarget = false;
               countOfShotsOnTarget = 0;
               gridPlayer[randomRowPlayer][randomColPlayer].missed = true;
               nodesHitInOrderForPlayer.push(itemPlayer);
-              hits.push([randomRowPlayer, randomColPlayer, "player", 0]);
+              hits.push([randomRowPlayer, randomColPlayer, "player", 0, 0, ""]);
             }
           }
         }
@@ -323,7 +334,15 @@ export function aiAlgorithm(
         var itemPlayer;
         var direction;
 
-        while (isShotOnTarget) {
+        while (
+          isShotOnTarget &&
+          !checkIfTheGameEnded(
+            gridPlayer,
+            gridOpponent,
+            playerFilledCells,
+            opponentFilledCells
+          )[0]
+        ) {
           while (countOfShotsOnTarget == 0) {
             var randomNumber = getRandomInt(0, 3);
 
@@ -566,7 +585,15 @@ export function aiAlgorithm(
     ) {
       switch (difficultyLevelForOpponent) {
         case "easy":
-          while (isShotOnTarget) {
+          while (
+            isShotOnTarget &&
+            !checkIfTheGameEnded(
+              gridPlayer,
+              gridOpponent,
+              playerFilledCells,
+              opponentFilledCells
+            )[0]
+          ) {
             while (true) {
               var randomRowOpponent = getRandomInt(0, 9);
               var randomColOpponent = getRandomInt(0, 9);
@@ -637,7 +664,15 @@ export function aiAlgorithm(
           var itemOpponent;
           var numbers;
 
-          while (isShotOnTarget) {
+          while (
+            isShotOnTarget &&
+            !checkIfTheGameEnded(
+              gridPlayer,
+              gridOpponent,
+              playerFilledCells,
+              opponentFilledCells
+            )[0]
+          ) {
             while (countOfShotsOnTarget == 0) {
               var randomRowOpponent = getRandomInt(0, 9);
               var randomColOpponent = getRandomInt(0, 9);
@@ -803,7 +838,15 @@ export function aiAlgorithm(
                 countOfShotsOnTarget = 0;
                 gridOpponent[itemOpponent[0]][itemOpponent[1]].missed = true;
                 nodesHitInOrderForOpponent.push(itemOpponent);
-                hits.push([itemOpponent[0], itemOpponent[1], "opponent", 0]);
+                hits.push([
+                  itemOpponent[0],
+                  itemOpponent[1],
+                  "opponent",
+                  0,
+                  0,
+                  0,
+                  "",
+                ]);
               } else {
                 isShotOnTarget = false;
                 countOfShotsOnTarget = 0;
@@ -816,6 +859,9 @@ export function aiAlgorithm(
                   randomColOpponent,
                   "opponent",
                   0,
+                  0,
+                  0,
+                  "",
                 ]);
               }
             }
@@ -823,6 +869,275 @@ export function aiAlgorithm(
           break;
 
         case "hard":
+          var previousRandomRowOpponent;
+          var previousRandomColOpponent;
+          var countOfShotsOnTarget = 0;
+          var itemOpponent;
+          var direction;
+
+          while (
+            isShotOnTarget &&
+            !checkIfTheGameEnded(
+              gridPlayer,
+              gridOpponent,
+              playerFilledCells,
+              opponentFilledCells
+            )[0]
+          ) {
+            while (countOfShotsOnTarget == 0) {
+              var randomNumber = getRandomInt(0, 3);
+
+              switch (randomNumber) {
+                case 0:
+                  var randomRowOpponent = getRandomInt(0, 9);
+                  var randomColOpponent = getRandomInt(0, 9);
+                  itemOpponent = [randomRowOpponent, randomColOpponent];
+                  break;
+                case 1:
+                  var randomIndex = getRandomInt(
+                    0,
+                    opponentFilledCells.length - 1
+                  );
+                  var randomRowOpponent = opponentFilledCells[randomIndex][0];
+                  var randomColOpponent = opponentFilledCells[randomIndex][1];
+                  itemOpponent = [randomRowOpponent, randomColOpponent];
+                  break;
+                case 2:
+                  var randomRowOpponent = getRandomInt(0, 9);
+                  var randomColOpponent = getRandomInt(0, 9);
+                  itemOpponent = [randomRowOpponent, randomColOpponent];
+                  break;
+                case 3:
+                  var randomRowOpponent = getRandomInt(0, 9);
+                  var randomColOpponent = getRandomInt(0, 9);
+                  itemOpponent = [randomRowOpponent, randomColOpponent];
+                  break;
+                default:
+                  break;
+              }
+
+              if (!isInArray(nodesHitInOrderForOpponent, itemOpponent)) {
+                break;
+              }
+            }
+
+            if (countOfShotsOnTarget > 0) {
+              var isDirectionValid = true;
+              var case0 = false,
+                case1 = false,
+                case2 = false,
+                case3 = false;
+              while (isDirectionValid) {
+                switch (direction) {
+                  case "up":
+                    case0 = true;
+                    previousRandomRowOpponent -= 1;
+                    itemOpponent = [
+                      previousRandomRowOpponent,
+                      previousRandomColOpponent,
+                    ];
+                    break;
+                  case "down":
+                    case1 = true;
+                    previousRandomRowOpponent += 1;
+                    itemOpponent = [
+                      previousRandomRowOpponent,
+                      previousRandomColOpponent,
+                    ];
+                    break;
+                  case "right":
+                    case2 = true;
+                    previousRandomColOpponent += 1;
+                    itemOpponent = [
+                      previousRandomRowOpponent,
+                      previousRandomColOpponent,
+                    ];
+                    break;
+                  case "left":
+                    case3 = true;
+                    previousRandomColOpponent -= 1;
+                    itemOpponent = [
+                      previousRandomRowOpponent,
+                      previousRandomColOpponent,
+                    ];
+                    break;
+
+                  default:
+                    break;
+                }
+
+                if (case0 && case1 && case2 && case3) {
+                  countOfShotsOnTarget = 0;
+                  while (true) {
+                    var randomNumber = getRandomInt(0, 2);
+
+                    switch (randomNumber) {
+                      case 0:
+                        var randomRowOpponent = getRandomInt(0, 9);
+                        var randomColOpponent = getRandomInt(0, 9);
+                        itemOpponent = [randomRowOpponent, randomColOpponent];
+                        break;
+                      case 1:
+                        var randomIndex = getRandomInt(
+                          0,
+                          opponentFilledCells.length
+                        );
+                        var randomRowOpponent =
+                          opponentFilledCells[randomIndex][0];
+                        var randomColOpponent =
+                          opponentFilledCells[randomIndex][1];
+                        itemOpponent = [randomRowOpponent, randomColOpponent];
+                        break;
+                      case 2:
+                        var randomRowOpponent = getRandomInt(0, 9);
+                        var randomColOpponent = getRandomInt(0, 9);
+                        itemOpponent = [randomRowOpponent, randomColOpponent];
+                        break;
+                      default:
+                        break;
+                    }
+
+                    if (!isInArray(nodesHitInOrderForOpponent, itemOpponent)) {
+                      break;
+                    }
+                  }
+                  break;
+                } else if (
+                  !isInRange(itemOpponent[0]) ||
+                  !isInRange(itemOpponent[1])
+                ) {
+                  // pass
+                  direction = getOppositeDirection(direction);
+                } else if (
+                  !isInArray(nodesHitInOrderForOpponent, itemOpponent)
+                ) {
+                  break;
+                }
+              }
+            }
+
+            if (isInArray(opponentFilledCells, itemOpponent)) {
+              var isShotOnTarget = true;
+
+              if (countOfShotsOnTarget > 0) {
+                gridOpponent[itemOpponent[0]][itemOpponent[1]].isHit = true;
+
+                shipIdCountForOpponent.set(
+                  gridOpponent[itemOpponent[0]][itemOpponent[1]].shipId,
+                  shipIdCountForOpponent.get(
+                    gridOpponent[itemOpponent[0]][itemOpponent[1]].shipId
+                  ) + 1
+                );
+
+                checkIfTheShipSankVar = checkIfTheShipSank(
+                  shipIdCountForOpponent,
+                  "opponent"
+                );
+
+                if (checkIfTheShipSankVar[0]) {
+                  hits.push([
+                    itemOpponent[0],
+                    itemOpponent[1],
+                    "opponent",
+                    1,
+                    1,
+                    checkIfTheShipSankVar[1],
+                  ]);
+                } else {
+                  hits.push([
+                    itemOpponent[0],
+                    itemOpponent[1],
+                    "opponent",
+                    1,
+                    0,
+                    "",
+                  ]);
+                }
+              } else {
+                gridOpponent[randomRowOpponent][randomColOpponent].isHit = true;
+
+                shipIdCountForOpponent.set(
+                  gridOpponent[randomRowOpponent][randomColOpponent].shipId,
+                  shipIdCountForOpponent.get(
+                    gridOpponent[randomRowOpponent][randomColOpponent].shipId
+                  ) + 1
+                );
+
+                checkIfTheShipSankVar = checkIfTheShipSank(
+                  shipIdCountForOpponent,
+                  "opponent"
+                );
+
+                if (checkIfTheShipSankVar[0]) {
+                  hits.push([
+                    randomRowOpponent,
+                    randomColOpponent,
+                    "opponent",
+                    1,
+                    1,
+                    checkIfTheShipSankVar[1],
+                  ]);
+                } else {
+                  hits.push([
+                    randomRowOpponent,
+                    randomColOpponent,
+                    "opponent",
+                    1,
+                    0,
+                    "",
+                  ]);
+                }
+
+                direction =
+                  gridOpponent[randomRowOpponent][randomColOpponent].direction;
+                previousRandomRowOpponent = randomRowOpponent;
+                previousRandomColOpponent = randomColOpponent;
+              }
+
+              countOfShotsOnTarget++;
+
+              if (checkIfTheShipSankVar[0]) {
+                countOfShotsOnTarget = 0;
+              }
+
+              nodesHitInOrderForOpponent.push(itemOpponent);
+              shipHitOpponent.push(itemOpponent);
+            } else {
+              isShotOnTarget = false;
+
+              if (countOfShotsOnTarget > 0) {
+                isShotOnTarget = false;
+                countOfShotsOnTarget = 0;
+                gridOpponent[itemOpponent[0]][itemOpponent[1]].missed = true;
+                nodesHitInOrderForOpponent.push(itemOpponent);
+                hits.push([
+                  itemOpponent[0],
+                  itemOpponent[1],
+                  "opponent",
+                  0,
+                  0,
+                  "",
+                ]);
+              } else {
+                isShotOnTarget = false;
+                countOfShotsOnTarget = 0;
+                gridOpponent[randomRowOpponent][
+                  randomColOpponent
+                ].missed = true;
+                nodesHitInOrderForOpponent.push(itemOpponent);
+                hits.push([
+                  randomRowOpponent,
+                  randomColOpponent,
+                  "opponent",
+                  0,
+                  0,
+                  "",
+                ]);
+              }
+
+              nodesHitInOrderForOpponent.push(itemOpponent);
+            }
+          }
           break;
 
         default:

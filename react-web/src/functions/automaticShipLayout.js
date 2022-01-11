@@ -107,44 +107,6 @@ function isShipPlacementPossible(
   return true;
 }
 
-// for future purposes if you want to generate 1-cell spacing between ships
-function updateCellsAround(filledCells, randomDirection, shipSize, row, col) {
-  let itemsToUpdateFirstSide = [];
-  let itemsToUpdateSecondSide = [];
-
-  for (let i = 0; i < shipSize; i++) {
-    switch (randomDirection) {
-      case "up" || "down":
-        break;
-      case "right" || "left":
-        break;
-
-      default:
-        break;
-    }
-  }
-}
-
-function generateSpaceBetweenShips(
-  filledCells,
-  shipSize,
-  randomDirection,
-  row,
-  col
-) {
-  switch (randomDirection) {
-    case "up" || "down":
-      updateCellsAround(filledCells, randomDirection, shipSize, row, col);
-      break;
-    case "right" || "left":
-      updateCellsAround(filledCells, randomDirection, shipSize, row, col);
-      break;
-
-    default:
-      break;
-  }
-}
-
 function assignNodeToTheShipType(shipSize, grid, randomRow, randomCol) {
   if (shipSize == 4) grid[randomRow][randomCol].shipType = "carrier";
   if (shipSize == 3) grid[randomRow][randomCol].shipType = "battleship";
@@ -276,14 +238,6 @@ function createShip(grid, filledCells, shipSize, shipId) {
         break;
     }
   }
-  /*
-  generateSpaceBetweenShips(
-    filledCells,
-    shipSize,
-    randomDirection,
-    initialRow,
-    initialCol
-  );*/
 }
 export function automaticShipLayout(grid) {
   const filledCells = [];
