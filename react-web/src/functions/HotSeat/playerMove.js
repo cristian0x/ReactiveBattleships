@@ -18,7 +18,9 @@ export const playerMove = (
   winnerName,
   hasOpponentPlacedShips,
   playerMoves,
-  setPlayerMoves
+  setPlayerMoves,
+  opponentMoves,
+  setGameMovesInOrder
 ) => {
   if (!areAllShipsPlaced[0]) return;
   if (!(hasOpponentPlacedShips[0] === true && areAllShipsPlaced[0] === true))
@@ -49,7 +51,7 @@ export const playerMove = (
   setIsUpToDate();
   if (checkIfTheGameEndedHotSeat(playerGrid, opponentLayout)[0]) {
     setHasGameEnded([true, winnerName]);
-    // post game
+    setGameMovesInOrder([playerMoves, opponentMoves])
     return;
   }
   setTimeout(() => {

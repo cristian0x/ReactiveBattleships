@@ -30,18 +30,18 @@ const Login = ({ setPlayerData, playerData }) => {
   return (
     <div className="columnLogIn">
       <div id="formContent">
-        {!playerData[1] && (<button id="btns" onClick={showLoginBox}>
+        <button id="btns" onClick={showLoginBox} disabled={playerData[1]} >
           <h2 className={isLoginOpen ? "active" : "inactive underlineHover"}>
             {" "}
             Sign In{" "}
           </h2>
-        </button>)}
-        {!playerData[1] && (<button id="btns" onClick={showRegisterBox}>
+        </button>
+        <button id="btns" onClick={showRegisterBox} disabled={playerData[1]}>
           <h2 className={isRegisterOpen ? "active" : "inactive underlineHover"}>
             {" "}
             Sign Up{" "}
           </h2>
-        </button>) }
+        </button>
         <div className="fadeIn first"></div>
 
         {isLoginOpen && (

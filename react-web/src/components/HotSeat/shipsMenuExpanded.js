@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { AnimatePresence, useCycle } from "framer-motion";
-import { menuExpand } from "../../AnimationVariants/animationVariants";
+import { menuExpand } from "../../animationVariants/animationVariants";
 import { motion } from "framer-motion";
 
 const ShipsMenuExpanded = ({

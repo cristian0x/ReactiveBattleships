@@ -5,13 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="070921f3-6a97-4d94-8481-8188e04109fe" name="Default Changelist" comment="Backend added">
+      <change afterPath="$PROJECT_DIR$/react-web/src/services/leaderboard.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react-web/src/services/logIn.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react-web/src/services/register.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react-web/src/services/saveGame.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/controllers/AuthorizationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/controllers/AuthorizationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/registration/RegistrationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/registration/RegistrationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/user/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/user/UserDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/user/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/user/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/user/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/user/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reactive-spring/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/reactive-spring/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-web/src/AnimationVariants/animationVariants.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-web/src/animationVariants/animationVariants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-web/src/components/Authentication/loginBox.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react-web/src/components/Authentication/loginBox.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-web/src/components/Authentication/registerBox.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react-web/src/components/Authentication/registerBox.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-web/src/components/HotSeat/GameBoard.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-web/src/components/HotSeat/GameBoard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-web/src/components/HotSeat/PlayerChange.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-web/src/components/HotSeat/PlayerChange.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-web/src/components/HotSeat/WinnerPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-web/src/components/HotSeat/WinnerPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-web/src/components/HotSeat/hotSeatBoard.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-web/src/components/HotSeat/hotSeatBoard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-web/src/components/HotSeat/shipsMenuExpanded.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-web/src/components/HotSeat/shipsMenuExpanded.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-web/src/functions/HotSeat/playerMove.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-web/src/functions/HotSeat/playerMove.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-web/src/pages/game.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react-web/src/pages/game.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-web/src/pages/hotSeat.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-web/src/pages/hotSeat.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-web/src/pages/leaderboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-web/src/pages/leaderboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-web/src/pages/login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react-web/src/pages/login.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-web/src/pages/menu.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react-web/src/pages/menu.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -245,7 +257,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init.d" />

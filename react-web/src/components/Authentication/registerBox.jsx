@@ -1,13 +1,15 @@
 import React from "react";
 import { useState } from "react/cjs/react.development";
 import "../../styles/login.css";
+import axios from "axios";
+import { registerUser } from "../../services/register";
 
 const RegisterBox = () => {
   const [login, setLogin] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [firstName, setFirstName] = useState("")
-  const [lastName, setLastName] = useState("")
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
 
   function onLoginChange(e) {
     setLogin(e.target.value);
@@ -27,6 +29,11 @@ const RegisterBox = () => {
 
   function onLastNameChange(e) {
     setLastName(e.target.value);
+  }
+
+  async function handleRegistration(e) {
+    e.preventDefault();
+    await registerUser(firstName, lastName, email, login, password);
   }
 
   return (
@@ -76,7 +83,12 @@ const RegisterBox = () => {
         value={password}
         onChange={onPasswordChange}
       />
-      <input type="submit" className="fadeIn fourth" value="Sign up" />
+      <input
+        type="button"
+        className="fadeIn fourth"
+        value="Sign up"
+        onClick={handleRegistration}
+      />
     </form>
   );
 };

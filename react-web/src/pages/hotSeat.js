@@ -5,10 +5,11 @@ import WinnerPage from "../components/HotSeat/WinnerPage";
 const HotSeat = () => {
 
   const [hasGameEnded, setHasGameEnded] = useState([false, "Winner name"]);
+  const [gameMovesInOrder, setGameMovesInOrder] = useState([[], []]);
 
   return (
     <>
-      {!hasGameEnded[0] ? (<HotSeatBoard {...{hasGameEnded, setHasGameEnded}}/>) : (<WinnerPage {...{hasGameEnded}}/>)}
+      {!hasGameEnded[0] ? (<HotSeatBoard {...{hasGameEnded, setHasGameEnded, setGameMovesInOrder}}/>) : (<WinnerPage {...{hasGameEnded, gameMovesInOrder}}/>)}
     </>
   );
 };

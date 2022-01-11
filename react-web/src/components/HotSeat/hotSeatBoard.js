@@ -6,7 +6,7 @@ import GameBoard from "./GameBoard";
 import { useCycle } from "framer-motion";
 import PlayerChange from "./PlayerChange";
 
-const HotSeatBoard = ({ hasGameEnded, setHasGameEnded }) => {
+const HotSeatBoard = ({ hasGameEnded, setHasGameEnded, setGameMovesInOrder }) => {
   const [isBoardVisible, setIsBoardVisible] = useCycle(true, false);
 
   const [hasAlreadyMoved, setHasAlreadyMoved] = useCycle([false, 0], [true, 0]);
@@ -67,6 +67,7 @@ const HotSeatBoard = ({ hasGameEnded, setHasGameEnded }) => {
       areShipsPlacedPlayer2,
       player1MovesInOrder,
       setPlayer1MovesInOrder,
+      player2MovesInOrder
     ],
     [
       "Player 2", //username
@@ -83,6 +84,7 @@ const HotSeatBoard = ({ hasGameEnded, setHasGameEnded }) => {
       areShipsPlacedPlayer1,
       player2MovesInOrder,
       setPlayer2MovesInOrder,
+      player1MovesInOrder
     ]
   );
 
@@ -113,6 +115,7 @@ const HotSeatBoard = ({ hasGameEnded, setHasGameEnded }) => {
               setHasAlreadyMoved,
               hasGameEnded,
               setHasGameEnded,
+              setGameMovesInOrder
             }}
           />
         </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import {onHover, pageSwitch} from "../../AnimationVariants/animationVariants";
+import {onHover, pageSwitch} from "../../animationVariants/animationVariants";
 import { motion, AnimatePresence } from "framer-motion";
 
 const PlayerChange = ({

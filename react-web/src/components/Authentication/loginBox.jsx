@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "../../styles/login.css";
+import axios from "axios";
+import {logIn} from "../../services/logIn";
 
 const LoginBox = ({ setPlayerData, playerData }) => {
   const [login, setLogin] = useState("");
@@ -13,21 +15,15 @@ const LoginBox = ({ setPlayerData, playerData }) => {
     setPassword(e.target.value);
   }
 
-  function handleLogin(e) {
+  async function handleLogin(e) {
     e.preventDefault();
-    setPlayerData([
-      {
-        login: login,
-        password: password,
-      },
-      true,
-    ]);
+    await logIn(login, password, setPlayerData)
   }
 
   function handleLogOut(e) {
     e.preventDefault();
-    setLogin("")
-    setPassword("")
+    setLogin("");
+    setPassword("");
     setPlayerData([{}, false]);
   }
 
