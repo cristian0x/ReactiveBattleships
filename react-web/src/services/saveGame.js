@@ -1,14 +1,14 @@
 import axios from "axios";
 
-export const saveGame = async (gameMovesInOrder) => {
+export const saveGame = async (player1Data, player2Data, gameMovesInOrder) => {
   try {
     await axios.post("http://localhost:8080/user/savedGames/add", {
-      firstPlayerId: "1", // for test purposes
-      secondPlayerId: "2", // for test purposes
+      firstPlayerId: player1Data[0].id,
+      secondPlayerId: player2Data[0].id,
       savedMoves: gameMovesInOrder.toString(),
-      savedBy: "test@test.pl" // for test purposes
-    })
-  } catch(error) {
-    console.log(error.response.data)
+      savedBy: player1Data[0].email,
+    });
+  } catch (error) {
+    console.log(error.response.data);
   }
-}
+};

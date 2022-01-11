@@ -32,10 +32,13 @@ export const playerMove = (
   let opponentLayoutCopy = opponentLayout;
   let playerMovesCopy = playerMoves;
 
+  let haveShipBeenHit = false;
+
   if (checkIfShipHit(clickedRow, clickedColumn, opponentLayout)) {
     playerShootingBoardCopy[clickedRow][clickedColumn].isHit = true;
     playerShootingBoardCopy[clickedRow][clickedColumn].shipId = "~";
     opponentLayoutCopy[clickedRow][clickedColumn].isHit = true;
+    haveShipBeenHit = true;
   } else {
     playerShootingBoardCopy[clickedRow][clickedColumn].isFilled = true;
     playerShootingBoardCopy[clickedRow][clickedColumn].shipId = "~";
@@ -45,18 +48,22 @@ export const playerMove = (
   playerMovesCopy.push([clickedRow, clickedColumn]);
   setPlayerMoves(playerMovesCopy);
 
-  setHasAlreadyMoved();
+  if (!haveShipBeenHit) {
+    setHasAlreadyMoved();
+  }
   setPlayerShootingBoard(playerShootingBoardCopy);
   setOpponentLayout(opponentLayoutCopy);
   setIsUpToDate();
   if (checkIfTheGameEndedHotSeat(playerGrid, opponentLayout)[0]) {
     setHasGameEnded([true, winnerName]);
-    setGameMovesInOrder([playerMoves, opponentMoves])
+    setGameMovesInOrder([playerMoves, opponentMoves]);
     return;
   }
-  setTimeout(() => {
-    setIsBoardVisible();
-  }, 1000);
+  if (!haveShipBeenHit) {
+    setTimeout(() => {
+      setIsBoardVisible();
+    }, 1000);
+  }
 };
 
 const checkIfShipHit = (clickedRow, clickedColumn, opponentLayout) => {

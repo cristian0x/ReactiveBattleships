@@ -9,10 +9,10 @@ const ShipsMenu = ({
   shipsDirection,
   setShipsDirection,
   whoseTurn,
-  refreshPage
+  refreshPage,
+  isExpanded,
+  setIsExpanded,
 }) => {
-  const [isExpanded, setIsExpanded] = useCycle(false, true);
-
   return (
     <>
       {isExpanded ? (

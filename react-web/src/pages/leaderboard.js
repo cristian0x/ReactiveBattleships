@@ -2,7 +2,6 @@ import React from "react";
 import { pageSwitch } from "../animationVariants/animationVariants";
 import { motion } from "framer-motion";
 import { getLeaderboard } from "../services/leaderboard";
-import useAxiosGet from "../hooks/useAxiosGet";
 
 const Leaderboard = () => {
   const data = getLeaderboard();

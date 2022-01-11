@@ -17,7 +17,9 @@ const GameBoard = ({
   setHasAlreadyMoved,
   hasGameEnded,
   setHasGameEnded,
-  setGameMovesInOrder
+  setGameMovesInOrder,
+  isExpanded,
+  setIsExpanded,
 }) => {
   const [lastShipID, setLastShipID] = useCycle(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
 
@@ -128,15 +130,32 @@ const GameBoard = ({
             ))}
           </div>
         </div>
-
-        <motion.button
-          className="button"
-          onClick={() => setIsPlayerPlacingShips(true)}
-          whileHover={onHover.hover}
-          onTap={{ scale: 0.9 }}
-        >
-           Start placing ships
-        </motion.button>
+        {!whoseTurn[5][0] && (
+          <>
+            {!isExpanded ? (
+              <motion.button
+                className="button"
+                onClick={() => {
+                  setIsPlayerPlacingShips(true);
+                  setIsExpanded();
+                }}
+                whileHover={onHover.hover}
+                onTap={{ scale: 0.9 }}
+              >
+                Start placing ships
+              </motion.button>
+            ) : (
+              <motion.button
+                className="button"
+                onClick={() => setIsExpanded()}
+                whileHover={onHover.hover}
+                onTap={{ scale: 0.9 }}
+              >
+                Hide menu
+              </motion.button>
+            )}
+          </>
+        )}
       </motion.div>
     </AnimatePresence>
   );

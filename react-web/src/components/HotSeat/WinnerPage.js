@@ -4,14 +4,12 @@ import { motion } from "framer-motion";
 import { useHistory } from "react-router-dom";
 import {saveGame} from "../../services/saveGame";
 
-const WinnerPage = ({ hasGameEnded, gameMovesInOrder }) => {
+const WinnerPage = ({ hasGameEnded, gameMovesInOrder, player1Data, player2Data }) => {
   const history = useHistory();
-
-  const axios = require("axios")
 
   async function handlePostGame(e) {
     e.preventDefault()
-    await saveGame(gameMovesInOrder)
+    await saveGame(player1Data, player2Data, gameMovesInOrder)
   }
 
   return (
@@ -24,7 +22,7 @@ const WinnerPage = ({ hasGameEnded, gameMovesInOrder }) => {
       <h1> {"Winer is: " + hasGameEnded[1]} </h1>
       <motion.button
         className="button"
-        onClick={() => history.push("/menu")}
+        onClick={() => history.push("/")}
         whileHover={onHover.hover}
         onTap={{ scale: 0.9 }}
       >

@@ -6,7 +6,7 @@ import GameBoard from "./GameBoard";
 import { useCycle } from "framer-motion";
 import PlayerChange from "./PlayerChange";
 
-const HotSeatBoard = ({ hasGameEnded, setHasGameEnded, setGameMovesInOrder }) => {
+const HotSeatBoard = ({ hasGameEnded, setHasGameEnded, setGameMovesInOrder, player1Data}) => {
   const [isBoardVisible, setIsBoardVisible] = useCycle(true, false);
 
   const [hasAlreadyMoved, setHasAlreadyMoved] = useCycle([false, 0], [true, 0]);
@@ -53,7 +53,7 @@ const HotSeatBoard = ({ hasGameEnded, setHasGameEnded, setGameMovesInOrder }) =>
 
   const [whoseTurn, setWhoseTurn] = useCycle(
     [
-      "Player 1", //username
+      player1Data[0].email, //username
       player1Grid,
       setPlayer1Grid,
       player1ShootingBoard,
@@ -70,7 +70,7 @@ const HotSeatBoard = ({ hasGameEnded, setHasGameEnded, setGameMovesInOrder }) =>
       player2MovesInOrder
     ],
     [
-      "Player 2", //username
+      player1Data[0].email, //username
       player2Grid,
       setPlayer2Grid,
       player2ShootingBoard,
@@ -88,6 +88,8 @@ const HotSeatBoard = ({ hasGameEnded, setHasGameEnded, setGameMovesInOrder }) =>
     ]
   );
 
+  const [isExpanded, setIsExpanded] = useCycle(false, true);
+
   const [isRefreshed, refreshPage] = useCycle(true, false);
 
   return (
@@ -101,6 +103,8 @@ const HotSeatBoard = ({ hasGameEnded, setHasGameEnded, setGameMovesInOrder }) =>
               shipsDirection,
               setShipsDirection,
               whoseTurn,
+              isExpanded,
+              setIsExpanded
             }}
           />
           <GameBoard
@@ -115,7 +119,9 @@ const HotSeatBoard = ({ hasGameEnded, setHasGameEnded, setGameMovesInOrder }) =>
               setHasAlreadyMoved,
               hasGameEnded,
               setHasGameEnded,
-              setGameMovesInOrder
+              setGameMovesInOrder,
+              isExpanded,
+              setIsExpanded
             }}
           />
         </div>
