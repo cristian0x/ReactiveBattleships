@@ -1,8 +1,6 @@
 import React from "react";
 import Node from "../components/node";
 import "../styles/game.css";
-import { automaticShipLayout } from "../functions/automaticShipLayout.js";
-import { aiAlgorithm } from "../functions/aiAlgorithm";
 import { useState } from "react/cjs/react.development";
 import { onHover } from "../animationVariants/animationVariants";
 import { motion } from "framer-motion";
@@ -44,50 +42,20 @@ const clearGrid = () => {
   }
 };
 
-const resetShipLayout = () => {
-  clearGrid();
-  const initialGrid = createGrid();
-  return initialGrid;
-};
-
-const Game = () => {
+const Replay = ({ replay }) => {
   const [gridPlayer, setGridPlayer] = useState(createGrid());
   const [gridOpponent, setGridOpponent] = useState(createGrid());
-  const [areGridsFilled, setAreGridsFilled] = useState(false);
-  const [playerFilledCells, setPlayerFilledCells] = useState([]);
-  const [opponentFilledCells, setOpponentFilledCells] = useState([]);
-  const [disable, setDisable] = useState(false);
-  const [difficultyLevelForPlayer, setDifficultyLevelForPlayer] = useState("");
-  const [difficultyLevelForOpponent, setDifficultyLevelForOpponent] =
-    useState("");
-
-  const visualizeAutomaticShipLayout = () => {
-    let dataFromAutomaticShipLayout = automaticShipLayout(resetShipLayout());
-    return dataFromAutomaticShipLayout;
-  };
-
-  const visualizeAiAlgorithm = () => {
-    let dataFromAiAlgorithm = aiAlgorithm(
-      gridPlayer,
-      gridOpponent,
-      playerFilledCells,
-      opponentFilledCells,
-      difficultyLevelForPlayer,
-      difficultyLevelForOpponent
-    );
-    let newGrid = dataFromAiAlgorithm;
-    return newGrid;
-  };
+  const [areShipsShown, setAreShipsShown] = useState(false);
+  const [replayAgain, setReplayAgain] = useState(false);
+  const [isResetOpen, setIsResetOpen] = useState(false);
 
   const animateAiAlgorithm = (hits) => {
-    console.log(hits);
-
     document
-      .getElementById("resetShipsButton")
+      .getElementById("replayButton")
       .setAttribute("disabled", "disabled");
 
     document
-      .getElementById("startGameButton")
+      .getElementById("showHideShipsButton")
       .setAttribute("disabled", "disabled");
 
     for (let i = 0; i < hits.length; i++) {
@@ -129,11 +97,10 @@ const Game = () => {
         }
         if (i === hits.length - 1) {
           showTheWinner(hits);
-          document
-            .getElementById("resetShipsButton")
-            .removeAttribute("disabled");
+          document.getElementById("replayButton").removeAttribute("disabled");
+          document.getElementById("replayButton").innerHTML = "Reset";
         }
-      }, 700 * i);
+      }, 50 * i);
     }
   };
 
@@ -148,17 +115,9 @@ const Game = () => {
       "The " + winner + " won";
   };
 
-  const handleDifficultyChangeForPlayer = (e) => {
-    setDifficultyLevelForPlayer(e.target.value);
-  };
-
-  const handleDifficultyChangeForOpponent = (e) => {
-    setDifficultyLevelForOpponent(e.target.value);
-  };
-
   return (
     <>
-      <h5 className="whoseTurn">Computers Battle!</h5>
+      <h5 className="whoseTurn">Replay!</h5>
       <div className="gameBoard">
         <div className="gridPlayer">
           {gridPlayer.map((row, rowIdx) => {
@@ -225,102 +184,75 @@ const Game = () => {
           })}
         </div>
       </div>
-      <select
-        name="selectDifficultyForComputer2"
-        id="selectDifficultyForComputer2"
-        onChange={handleDifficultyChangeForOpponent}
-      >
-        <option value="" defaultValue>
-          Please select difficulty
-        </option>
-        <option value="easy">easy</option>
-        <option value="medium">medium</option>
-        <option value="hard">hard</option>
-      </select>
-      <select
-        name="selectDifficultyForComputer1"
-        id="selectDifficultyForComputer1"
-        onChange={handleDifficultyChangeForPlayer}
-      >
-        <option value="" defaultValue>
-          Please select difficulty
-        </option>
-        <option value="easy">easy</option>
-        <option value="medium">medium</option>
-        <option value="hard">hard</option>
-      </select>
       <motion.button
-        className="rotateButton"
-        whileHover={onHover.hover}
-        onTap={{ scale: 0.9 }}
-        disabled={disable}
-        onClick={() => {
-          setGridPlayer(resetShipLayout());
-          setPlayerFilledCells([]);
-          setGridOpponent(resetShipLayout());
-          setOpponentFilledCells([]);
-          setAreGridsFilled(false);
-
-          let dataFromAutomaticShipLayoutForPlayer =
-            visualizeAutomaticShipLayout();
-          setGridPlayer(dataFromAutomaticShipLayoutForPlayer[0].slice());
-          setPlayerFilledCells(dataFromAutomaticShipLayoutForPlayer[1]);
-
-          let dataFromAutomaticShipLayoutForOpponent =
-            visualizeAutomaticShipLayout();
-          setGridOpponent(dataFromAutomaticShipLayoutForOpponent[0].slice());
-          setOpponentFilledCells(dataFromAutomaticShipLayoutForOpponent[1]);
-
-          setAreGridsFilled(true);
-          setDisable(true);
-        }}
-      >
-        Generate ships
-      </motion.button>
-      <motion.button
-        id="resetShipsButton"
+        id="showHideShipsButton"
         className="rotateButton"
         whileHover={onHover.hover}
         onTap={{ scale: 0.9 }}
         onClick={() => {
-          setDisable(false);
-          setGridPlayer(resetShipLayout());
-          setPlayerFilledCells([]);
-          setGridOpponent(resetShipLayout());
-          setOpponentFilledCells([]);
-          setAreGridsFilled(false);
-          document
-            .getElementById("startGameButton")
-            .removeAttribute("disabled");
-        }}
-      >
-        Reset ships
-      </motion.button>
-      <motion.button
-        id="startGameButton"
-        className="rotateButton"
-        whileHover={onHover.hover}
-        onTap={{ scale: 0.9 }}
-        onClick={() => {
-          if (
-            !areGridsFilled ||
-            difficultyLevelForPlayer.length === 0 ||
-            difficultyLevelForOpponent.length === 0
-          ) {
-            document.getElementById("showSunkenShip").innerHTML =
-              "Grids are empty or the difficulty level is not chosen!";
-          } else {
+          console.log(replay);
+          if (!areShipsShown) {
+            clearGrid();
             document.getElementById("showSunkenShip").innerHTML = "";
-            let dataFromAiAlgorithm = visualizeAiAlgorithm();
-            animateAiAlgorithm(dataFromAiAlgorithm[8]);
+            document.getElementById("showHideShipsButton").innerHTML =
+              "Hide ships!";
+            setGridPlayer(replay[1][1]);
+            setGridOpponent(replay[1][2]);
+            setAreShipsShown(true);
+          } else {
+            clearGrid();
+            document.getElementById("showHideShipsButton").innerHTML =
+              "Show ships!";
+            setGridPlayer(createGrid());
+            setGridOpponent(createGrid());
+            setAreShipsShown(false);
           }
         }}
       >
-        Start a game!
+        Show ships!
+      </motion.button>
+      <motion.button
+        id="replayButton"
+        className="rotateButton"
+        whileHover={onHover.hover}
+        onTap={{ scale: 0.9 }}
+        onClick={() => {
+          if (replayAgain && areShipsShown && isResetOpen) {
+            setIsResetOpen(false);
+            clearGrid();
+            setGridPlayer(createGrid());
+            setGridOpponent(createGrid());
+            setAreShipsShown(false);
+            document.getElementById("showSunkenShip").innerHTML = "";
+            document.getElementById("replayButton").innerHTML = "Replay again!";
+            document.getElementById("showHideShipsButton").innerHTML =
+              "Show ships!";
+            document
+              .getElementById("showHideShipsButton")
+              .removeAttribute("disabled");
+          } else if (!areShipsShown) {
+            clearGrid();
+            setGridPlayer(createGrid());
+            setGridOpponent(createGrid());
+            setIsResetOpen(false);
+            document.getElementById("replayButton").innerHTML = "Replay again!";
+            document
+              .getElementById("showHideShipsButton")
+              .removeAttribute("disabled");
+          }
+          if (!isResetOpen) {
+            document.getElementById("showSunkenShip").innerHTML = "";
+            animateAiAlgorithm(replay[1][0]);
+            setReplayAgain(true);
+            setIsResetOpen(true);
+          }
+        }}
+      >
+        Replay!
       </motion.button>
       <div id="showSunkenShip"></div>
     </>
   );
 };
 
-export default Game;
+export default Replay;
