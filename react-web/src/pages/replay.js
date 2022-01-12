@@ -4,9 +4,6 @@ import "../styles/game.css";
 import { useState } from "react/cjs/react.development";
 import { onHover } from "../animationVariants/animationVariants";
 import { motion } from "framer-motion";
-import { testHits } from "./testHits";
-import { testGridPlayer } from "./testGridPlayer";
-import { testGridOpponent } from "./testGridOpponent";
 
 const createGrid = () => {
   const grid = [];
@@ -45,9 +42,9 @@ const clearGrid = () => {
   }
 };
 
-const Replay = () => {
-  const [gridPlayer, setGridPlayer] = useState(createGrid);
-  const [gridOpponent, setGridOpponent] = useState(createGrid);
+const Replay = ({ replay }) => {
+  const [gridPlayer, setGridPlayer] = useState(createGrid());
+  const [gridOpponent, setGridOpponent] = useState(createGrid());
   const [areShipsShown, setAreShipsShown] = useState(false);
   const [replayAgain, setReplayAgain] = useState(false);
   const [isResetOpen, setIsResetOpen] = useState(false);
@@ -103,7 +100,7 @@ const Replay = () => {
           document.getElementById("replayButton").removeAttribute("disabled");
           document.getElementById("replayButton").innerHTML = "Reset";
         }
-      }, 700 * i);
+      }, 50 * i);
     }
   };
 
@@ -193,13 +190,14 @@ const Replay = () => {
         whileHover={onHover.hover}
         onTap={{ scale: 0.9 }}
         onClick={() => {
+          console.log(replay);
           if (!areShipsShown) {
             clearGrid();
             document.getElementById("showSunkenShip").innerHTML = "";
             document.getElementById("showHideShipsButton").innerHTML =
               "Hide ships!";
-            setGridPlayer(testGridPlayer);
-            setGridOpponent(testGridOpponent);
+            setGridPlayer(replay[1][1]);
+            setGridOpponent(replay[1][2]);
             setAreShipsShown(true);
           } else {
             clearGrid();
@@ -244,7 +242,7 @@ const Replay = () => {
           }
           if (!isResetOpen) {
             document.getElementById("showSunkenShip").innerHTML = "";
-            animateAiAlgorithm(testHits);
+            animateAiAlgorithm(replay[1][0]);
             setReplayAgain(true);
             setIsResetOpen(true);
           }

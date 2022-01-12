@@ -1,23 +1,25 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { onHover } from "../animationVariants/animationVariants";
+import { useState } from "react";
+import ReplayList from "./ReplayList";
+import Replay from "./replay";
+import { testHits } from "./testHits";
+import { testGridPlayer } from "./testGridPlayer";
+import { testGridOpponent } from "./testGridOpponent";
 
-const savedSeaBattles = () => {
+const SavedSeaBattles = () => {
+  const [replay, setReplay] = useState([false, []]);
+
   return (
-    <div>
-      <motion.button
-        id="showHideShipsButton"
-        className="rotateButton"
-        whileHover={onHover.hover}
-        onTap={{ scale: 0.9 }}
-        style={{ margin: 200, fontSize: 40 }}
-      >
-        <a href="/replay" style={{ color: "white" }}>
-          Saved Game, click me
-        </a>
-      </motion.button>
-    </div>
+    <>
+      {!replay[0] ? (
+        <ReplayList {...{ setReplay }} />
+      ) : (
+        <Replay {...{ replay }} />
+      )}
+    </>
   );
 };
 
-export default savedSeaBattles;
+export default SavedSeaBattles;
