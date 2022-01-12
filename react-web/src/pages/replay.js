@@ -50,6 +50,7 @@ const Replay = () => {
   const [gridOpponent, setGridOpponent] = useState(createGrid);
   const [areShipsShown, setAreShipsShown] = useState(false);
   const [replayAgain, setReplayAgain] = useState(false);
+  const [isResetOpen, setIsResetOpen] = useState(false);
 
   const animateAiAlgorithm = (hits) => {
     document
@@ -100,10 +101,7 @@ const Replay = () => {
         if (i === hits.length - 1) {
           showTheWinner(hits);
           document.getElementById("replayButton").removeAttribute("disabled");
-          document
-            .getElementById("showHideShipsButton")
-            .removeAttribute("disabled");
-          document.getElementById("replayButton").innerHTML = "Replay again!";
+          document.getElementById("replayButton").innerHTML = "Reset";
         }
       }, 700 * i);
     }
@@ -118,11 +116,6 @@ const Replay = () => {
     }
     document.getElementById("showSunkenShip").innerHTML =
       "The " + winner + " won";
-  };
-
-  const showShips = () => {
-    setGridPlayer(testGridPlayer.slice());
-    setGridOpponent(testGridOpponent.slice());
   };
 
   return (
@@ -226,19 +219,35 @@ const Replay = () => {
         whileHover={onHover.hover}
         onTap={{ scale: 0.9 }}
         onClick={() => {
-          if (replayAgain && areShipsShown) {
-            //clearGrid();
-            document.getElementById("showSunkenShip").innerHTML = "";
-            //setGridPlayer(testGridPlayer);
-            //setGridOpponent(testGridOpponent);
+          if (replayAgain && areShipsShown && isResetOpen) {
+            setIsResetOpen(false);
+            clearGrid();
             setGridPlayer(createGrid());
             setGridOpponent(createGrid());
-          } else if (replayAgain && !areShipsShown) {
+            setAreShipsShown(false);
+            document.getElementById("showSunkenShip").innerHTML = "";
+            document.getElementById("replayButton").innerHTML = "Replay again!";
+            document.getElementById("showHideShipsButton").innerHTML =
+              "Show ships!";
+            document
+              .getElementById("showHideShipsButton")
+              .removeAttribute("disabled");
+          } else if (!areShipsShown) {
             clearGrid();
+            setGridPlayer(createGrid());
+            setGridOpponent(createGrid());
+            setIsResetOpen(false);
+            document.getElementById("replayButton").innerHTML = "Replay again!";
+            document
+              .getElementById("showHideShipsButton")
+              .removeAttribute("disabled");
           }
-          document.getElementById("showSunkenShip").innerHTML = "";
-          animateAiAlgorithm(testHits);
-          setReplayAgain(true);
+          if (!isResetOpen) {
+            document.getElementById("showSunkenShip").innerHTML = "";
+            animateAiAlgorithm(testHits);
+            setReplayAgain(true);
+            setIsResetOpen(true);
+          }
         }}
       >
         Replay!

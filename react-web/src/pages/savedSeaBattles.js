@@ -1,5 +1,4 @@
 import React from "react";
-import Replay from "./replay";
 import { motion } from "framer-motion";
 import { onHover } from "../animationVariants/animationVariants";
 
