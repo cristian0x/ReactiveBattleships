@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import "../../styles/login.css";
-import axios from "axios";
 import {logIn} from "../../services/logIn";
 
 const LoginBox = ({ setPlayerData, playerData }) => {
-  const [login, setLogin] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  function onLoginChange(e) {
-    setLogin(e.target.value);
+  function onEmailChange(e) {
+    setEmail(e.target.value);
   }
 
   function onPasswordChange(e) {
@@ -17,12 +16,12 @@ const LoginBox = ({ setPlayerData, playerData }) => {
 
   async function handleLogin(e) {
     e.preventDefault();
-    await logIn(login, password, setPlayerData)
+    await logIn(email, password, setPlayerData)
   }
 
   function handleLogOut(e) {
     e.preventDefault();
-    setLogin("");
+    setEmail("");
     setPassword("");
     setPlayerData([{}, false]);
   }
@@ -31,12 +30,12 @@ const LoginBox = ({ setPlayerData, playerData }) => {
     <form id="loginForm">
       <input
         type="text"
-        id="login"
+        id="email"
         className="fadeIn second"
-        name="login"
-        placeholder="login"
-        value={login}
-        onChange={onLoginChange}
+        name="email"
+        placeholder="email"
+        value={email}
+        onChange={onEmailChange}
       />
       <input
         type="password"

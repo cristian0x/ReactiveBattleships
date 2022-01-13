@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react/cjs/react.development";
 import "../../styles/login.css";
+import { changePassword } from "../../services/changePassword";
 
 const ForgotPasswordBox = () => {
   const [login, setLogin] = useState("");
@@ -22,6 +23,11 @@ const ForgotPasswordBox = () => {
 
   function onOldPasswordChange(e) {
     setOldPassword(e.target.value);
+  }
+
+  async function handlePasswordChange(e) {
+    e.preventDefault();
+    await changePassword(email, login, oldPassword, password);
   }
 
   return (
@@ -62,7 +68,12 @@ const ForgotPasswordBox = () => {
         value={password}
         onChange={onPasswordChange}
       />
-      <input type="submit" className="fadeIn fourth" value="Change password" />
+      <input
+        type="button"
+        className="fadeIn fourth"
+        value="Change password"
+        onClick={handlePasswordChange}
+      />
     </form>
   );
 };

@@ -45,6 +45,9 @@ const Menu = () => {
 
         <motion.div
           className="chooseMode"
+          onClick={() => {
+            history.push("/single-player");
+          }}
           initial={rightBoxVariants.hidden}
           animate={rightBoxVariants.visible}
           transition={rightBoxVariants.transition}

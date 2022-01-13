@@ -5,6 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="070921f3-6a97-4d94-8481-8188e04109fe" name="Default Changelist" comment="Backend added">
+      <change afterPath="$PROJECT_DIR$/react-web/src/components/SinglePlayer/Board.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react-web/src/functions/SinglePlayer/ai.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react-web/src/functions/SinglePlayer/handleGameStart.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react-web/src/functions/SinglePlayer/roundCycle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react-web/src/pages/SinglePlayer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react-web/src/services/changePassword.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-web/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-web/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-web/src/components/Authentication/forgotPasswordBox.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react-web/src/components/Authentication/forgotPasswordBox.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-web/src/components/Authentication/loginBox.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react-web/src/components/Authentication/loginBox.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-web/src/components/Authentication/registerBox.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react-web/src/components/Authentication/registerBox.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-web/src/functions/HotSeat/playerMove.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-web/src/functions/HotSeat/playerMove.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-web/src/pages/menu.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react-web/src/pages/menu.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-web/src/services/logIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-web/src/services/logIn.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/controllers/AuthorizationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/controllers/AuthorizationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/controllers/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/react-web/src/pages/replay.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-web/src/pages/replay.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/react-web/src/pages/savedSeaBattles.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-web/src/pages/savedSeaBattles.js" afterDir="false" />
     </list>
@@ -192,6 +208,9 @@
       <workItem from="1641767895933" duration="785000" />
       <workItem from="1641843118579" duration="4287000" />
       <workItem from="1641930622171" duration="1695000" />
+      <workItem from="1641940624652" duration="918000" />
+      <workItem from="1641990899378" duration="606000" />
+      <workItem from="1641996258765" duration="2491000" />
       <workItem from="1641940624652" duration="2873000" />
       <workItem from="1642003211971" duration="135000" />
     </task>
