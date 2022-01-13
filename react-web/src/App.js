@@ -7,6 +7,7 @@ import Leaderboard from "./pages/leaderboard";
 import SavedSeaBattles from "./pages/savedSeaBattles";
 import { useState } from "react";
 import { PlayersContext } from "./providers/PlayersContext";
+import SinglePlayer from "./pages/SinglePlayer";
 
 function App() {
   const [player1Data, setPlayer1Data] = useState([{}, false]);
@@ -21,6 +22,7 @@ function App() {
           >
             <Route exact path="/" component={Menu} />
             <Route path="/game" component={Game} />
+            <Route path="/single-player" component={SinglePlayer} />
             <Route path="/hot-seat" component={HotSeat} />
             <Route path="/leaderboard" component={Leaderboard} />
             <Route path="/saved-sea-battles" component={SavedSeaBattles} />

@@ -1,10 +1,10 @@
 import axios from "axios";
 
-export const logIn = async (login, password, setPlayerData) => {
+export const logIn = async (email, password, setPlayerData) => {
 
   try {
     const userData = await axios.post("http://localhost:8080/auth/login", {
-      email: login,
+      email: email,
       password: password,
     });
     setPlayerData([userData.data, true]);
