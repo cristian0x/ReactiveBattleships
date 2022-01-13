@@ -1,6 +1,5 @@
-import {checkIfTheGameEnded} from "../checkIfTheGameEnded";
-import {checkIfTheShipSank} from "../checkIfTheShipSank";
-
+import { checkIfTheGameEnded } from "../checkIfTheGameEnded";
+import { checkIfTheShipSank } from "../checkIfTheShipSank";
 
 function getRandomInt(min, max) {
   min = Math.ceil(min);
@@ -17,7 +16,7 @@ function isInRange(rowOrColumn) {
 }
 
 function isInArray(haystack, needle) {
-  var i, j, current;
+  let i, j, current;
   for (i = 0; i < haystack.length; ++i) {
     if (needle.length === haystack[i].length) {
       current = haystack[i];
@@ -75,14 +74,7 @@ export function ai(
     shipIdCountForOpponent.set(i, 0);
   }
 
-  while (
-    !checkIfTheGameEnded(
-      gridPlayer,
-      gridOpponent,
-      playerFilledCells,
-      opponentFilledCells
-    )[0]
-    ) {
+  for (let iterator = 0; iterator < 100; iterator++) {
     var isShotOnTarget = true;
 
     switch (difficultyLevelForPlayer) {
@@ -95,7 +87,7 @@ export function ai(
             playerFilledCells,
             opponentFilledCells
           )[0]
-          ) {
+        ) {
           while (true) {
             var randomRowPlayer = getRandomInt(0, 9);
             var randomColPlayer = getRandomInt(0, 9);
@@ -157,7 +149,7 @@ export function ai(
             playerFilledCells,
             opponentFilledCells
           )[0]
-          ) {
+        ) {
           while (countOfShotsOnTarget == 0) {
             var randomRowPlayer = getRandomInt(0, 9);
             var randomColPlayer = getRandomInt(0, 9);
@@ -239,8 +231,6 @@ export function ai(
             var isShotOnTarget = true;
 
             if (countOfShotsOnTarget > 0) {
-
-
               shipIdCountForPlayer.set(
                 gridPlayer[itemPlayer[0]][itemPlayer[1]].shipId,
                 shipIdCountForPlayer.get(
@@ -266,7 +256,6 @@ export function ai(
                 hits.push([itemPlayer[0], itemPlayer[1], "player", 1, 0, ""]);
               }
             } else {
-
               shipIdCountForPlayer.set(
                 gridPlayer[randomRowPlayer][randomColPlayer].shipId,
                 shipIdCountForPlayer.get(
@@ -338,7 +327,7 @@ export function ai(
             playerFilledCells,
             opponentFilledCells
           )[0]
-          ) {
+        ) {
           while (countOfShotsOnTarget == 0) {
             var randomNumber = getRandomInt(0, 3);
 
@@ -468,7 +457,6 @@ export function ai(
             var isShotOnTarget = true;
 
             if (countOfShotsOnTarget > 0) {
-
               shipIdCountForPlayer.set(
                 gridPlayer[itemPlayer[0]][itemPlayer[1]].shipId,
                 shipIdCountForPlayer.get(
@@ -494,7 +482,6 @@ export function ai(
                 hits.push([itemPlayer[0], itemPlayer[1], "player", 1, 0, ""]);
               }
             } else {
-
               shipIdCountForPlayer.set(
                 gridPlayer[randomRowPlayer][randomColPlayer].shipId,
                 shipIdCountForPlayer.get(
@@ -586,7 +573,7 @@ export function ai(
               playerFilledCells,
               opponentFilledCells
             )[0]
-            ) {
+          ) {
             while (true) {
               var randomRowOpponent = getRandomInt(0, 9);
               var randomColOpponent = getRandomInt(0, 9);
@@ -665,7 +652,7 @@ export function ai(
               playerFilledCells,
               opponentFilledCells
             )[0]
-            ) {
+          ) {
             while (countOfShotsOnTarget == 0) {
               var randomRowOpponent = getRandomInt(0, 9);
               var randomColOpponent = getRandomInt(0, 9);
@@ -845,7 +832,7 @@ export function ai(
                 countOfShotsOnTarget = 0;
                 gridOpponent[randomRowOpponent][
                   randomColOpponent
-                  ].missed = true;
+                ].missed = true;
                 nodesHitInOrderForOpponent.push(itemOpponent);
                 hits.push([
                   randomRowOpponent,
@@ -876,7 +863,7 @@ export function ai(
               playerFilledCells,
               opponentFilledCells
             )[0]
-            ) {
+          ) {
             while (countOfShotsOnTarget == 0) {
               var randomNumber = getRandomInt(0, 3);
 
@@ -1116,7 +1103,7 @@ export function ai(
                 countOfShotsOnTarget = 0;
                 gridOpponent[randomRowOpponent][
                   randomColOpponent
-                  ].missed = true;
+                ].missed = true;
                 nodesHitInOrderForOpponent.push(itemOpponent);
                 hits.push([
                   randomRowOpponent,

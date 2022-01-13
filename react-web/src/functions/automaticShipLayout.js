@@ -254,7 +254,5 @@ export function automaticShipLayout(grid) {
   createShip(grid, filledCells, submarine, 8);
   createShip(grid, filledCells, submarine, 9);
 
-  console.log("grid", grid);
-
   return [grid, filledCells];
 }

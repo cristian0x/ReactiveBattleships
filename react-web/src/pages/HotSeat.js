@@ -19,11 +19,13 @@ const HotSeat = () => {
             setHasGameEnded,
             setGameMovesInOrder,
             player1Data,
-            player2Data
+            player2Data,
           }}
         />
       ) : (
-        <WinnerPage {...{ hasGameEnded, gameMovesInOrder, player1Data, player2Data }} />
+        <WinnerPage
+          {...{ hasGameEnded, gameMovesInOrder, player1Data, player2Data }}
+        />
       )}
     </>
   );

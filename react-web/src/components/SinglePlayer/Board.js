@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { AnimatePresence, motion, useCycle } from "framer-motion";
 import { onHover, pageSwitch } from "../../animationVariants/animationVariants";
 import { placeShips } from "../../functions/HotSeat/placeShips";
-import Node from "../node";
+import Node from "../Node";
 import { handleGameStart } from "../../functions/SinglePlayer/handleGameStart";
 import { roundCycle } from "../../functions/SinglePlayer/roundCycle";
 
@@ -44,7 +44,6 @@ const Board = ({
     }
     setAiGrid(aiGridCopy);
     setAiBoard(aiGridCopy[0])
-    console.log(aiBoard)
   };
 
   function handleDifficultyChange(e) {

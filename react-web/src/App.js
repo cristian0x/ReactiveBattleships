@@ -1,14 +1,14 @@
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Game from "./pages/game";
-import Menu from "./pages/menu";
-import HotSeat from "./pages/hotSeat";
-import Leaderboard from "./pages/leaderboard";
-import SavedSeaBattles from "./pages/savedSeaBattles";
+import ComputersBattle from "./pages/ComputersBattle";
+import Menu from "./pages/Menu";
+import HotSeat from "./pages/HotSeat";
+import Leaderboard from "./pages/Leaderboard";
+import SavedSeaBattles from "./pages/SavedSeaBattles";
 import { useState } from "react";
 import { PlayersContext } from "./providers/PlayersContext";
 import SinglePlayer from "./pages/SinglePlayer";
-import Replay from "./pages/replay";
+import Replay from "./components/Replays/Replay";
 
 
 function App() {
@@ -23,12 +23,11 @@ function App() {
             value={{ player1Data, setPlayer1Data, player2Data, setPlayer2Data }}
           >
             <Route exact path="/" component={Menu} />
-            <Route path="/game" component={Game} />
+            <Route path="/game" component={ComputersBattle} />
             <Route path="/single-player" component={SinglePlayer} />
             <Route path="/hot-seat" component={HotSeat} />
             <Route path="/leaderboard" component={Leaderboard} />
             <Route path="/saved-sea-battles" component={SavedSeaBattles} />
-            <Route path="/replay" component={Replay} />
           </PlayersContext.Provider>
           <Route path="*">
             <div className="page404">
