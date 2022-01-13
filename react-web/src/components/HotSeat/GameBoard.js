@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Node from "../node";
+import Node from "../Node";
 import { useCycle } from "framer-motion";
 import { playerMove } from "../../functions/HotSeat/playerMove";
 import { placeShips } from "../../functions/HotSeat/placeShips";

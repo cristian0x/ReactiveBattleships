@@ -8,7 +8,7 @@ import {
   rightBoxVariants,
   onHover,
 } from "../animationVariants/animationVariants";
-import Login from "./login";
+import Authentication from "./Authentication";
 import { PlayersContext } from "../providers/PlayersContext";
 
 const Menu = () => {
@@ -19,7 +19,7 @@ const Menu = () => {
 
   return (
     <div className="mainContainer">
-      <Login setPlayerData={setPlayer1Data} playerData={player1Data} />
+      <Authentication setPlayerData={setPlayer1Data} playerData={player1Data} />
       <div className="column">
         <motion.h5
           className="battleshipsText"
@@ -102,7 +102,7 @@ const Menu = () => {
           <h5 className="chooseModeText">Saved sea battles</h5>
         </motion.div>
       </div>
-      <Login setPlayerData={setPlayer2Data} playerData={player2Data} />
+      <Authentication setPlayerData={setPlayer2Data} playerData={player2Data} />
     </div>
   );
 };

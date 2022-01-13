@@ -1,12 +1,7 @@
 import React from "react";
-import { motion } from "framer-motion";
-import { onHover } from "../animationVariants/animationVariants";
 import { useState } from "react";
-import ReplayList from "./ReplayList";
-import Replay from "./replay";
-import { testHits } from "./testHits";
-import { testGridPlayer } from "./testGridPlayer";
-import { testGridOpponent } from "./testGridOpponent";
+import ReplayList from "../components/Replays/ReplayList";
+import Replay from "../components/Replays/Replay";
 
 const SavedSeaBattles = () => {
   const [replay, setReplay] = useState([false, []]);
