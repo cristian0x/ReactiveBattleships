@@ -1,7 +1,6 @@
 package com.io.reactivespring.user;
 
 import com.io.reactivespring.enums.UserRole;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

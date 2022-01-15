@@ -4,13 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="070921f3-6a97-4d94-8481-8188e04109fe" name="Default Changelist" comment="Backend added">
+    <list default="true" id="070921f3-6a97-4d94-8481-8188e04109fe" name="Default Changelist" comment="Small fixes to the backend">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_jsonwebtoken_jjwt_0_9_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/controllers/JwtAuthenticationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/security/JwtRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/security/JwtResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/security/JwtTokenUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/security/JwtUserDetailsService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-web/src/components/HotSeat/WinnerPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-web/src/components/HotSeat/WinnerPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-web/src/components/HotSeat/hotSeatBoard.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-web/src/components/HotSeat/hotSeatBoard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-web/src/pages/menu.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react-web/src/pages/menu.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-web/src/services/saveGame.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-web/src/services/saveGame.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/controllers/AuthorizationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/controllers/AuthorizationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reactive-spring/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/reactive-spring/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/security/configuration/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/security/configuration/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/user/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/user/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reactive-spring/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/reactive-spring/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,19 +100,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.ReactiveSpringApplication">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="generated-requests#1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" runType="Run single request">
       <method v="2" />
     </configuration>
@@ -196,6 +189,8 @@
       <workItem from="1641767895933" duration="785000" />
       <workItem from="1641843118579" duration="4287000" />
       <workItem from="1641930622171" duration="1695000" />
+      <workItem from="1642018867027" duration="4354000" />
+      <workItem from="1642093663256" duration="164000" />
     </task>
     <task id="LOCAL-00001" summary="init.d">
       <created>1635525174574</created>
@@ -248,6 +243,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init.d" />

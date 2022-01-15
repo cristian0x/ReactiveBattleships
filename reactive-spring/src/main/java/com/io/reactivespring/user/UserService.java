@@ -11,9 +11,6 @@ import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -28,20 +25,13 @@ import static com.io.reactivespring.utils.UserMapper.userToUserDTO;
 
 @Service
 @AllArgsConstructor
-public class UserService implements UserDetailsService {
+public class UserService {
 
-    private final static String EMAIL_NOT_FOUND_MSG = "User with email %s not found";
     private final static Logger LOGGER = LoggerFactory.getLogger(UserService.class);
 
     private final BCryptPasswordEncoder passwordEncoder;
     private final UserRepository userRepository;
     private final ConfirmationTokenService confirmationTokenService;
-
-    @Override
-    public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        return userRepository.findByEmail(s)
-                .orElseThrow(() -> new UsernameNotFoundException(String.format(EMAIL_NOT_FOUND_MSG, s)));
-    }
 
     public String singUpUser(User user) {
         LOGGER.info("signUpUser() new user - {}", user);
@@ -83,11 +73,10 @@ public class UserService implements UserDetailsService {
         } else {
             LOGGER.debug("getUserProfile() idOrNickname value is null");
             return userToUserDTO(this.userRepository.findByEmail(authentication.getName()).get());
-            // return userToUserDTO(this.userRepository.findByEmail("test@test.pl").orElse(null));
         }
     }
 
-    public List<UserDTO> getAllUsers(final Authentication authentication) {
+    public List<UserDTO> getAllUsers() {
         final List<User> userList = this.userRepository.findTop5ByOrderByGamesWon();
         return userList.stream()
                 .map(UserMapper::userToUserDTO)
@@ -99,7 +88,6 @@ public class UserService implements UserDetailsService {
                                 final ProfileUpdateDTO updateRequest) {
         LOGGER.info("updateProfile() for user with email {}", authentication.getName());
         this.userRepository.updateProfile(authentication.getName(), updateRequest.getIsWin(), updateRequest.getNumberOfShots(), updateRequest.getSuccessfulHits());
-        // this.userRepository.updateProfile("test@test.pl", updateRequest.getIsWin(), updateRequest.getNumberOfShots(), updateRequest.getSuccessfulHits());
 
         return "Profile update successful";
     }
@@ -128,7 +116,6 @@ public class UserService implements UserDetailsService {
         }
 
         final String encodePassword = passwordEncoder.encode(changePasswordDTO.getNewPassword());
-        // this.userRepository.updatePassword("test@test.pl", encodePassword);
         this.userRepository.updatePassword(authentication.getName(), encodePassword);
 
         return "Password update successful";
@@ -137,7 +124,6 @@ public class UserService implements UserDetailsService {
     public String deleteUser(final Authentication authentication) {
         LOGGER.info("deleteUser() deleting user with email {}", authentication.getName());
         this.userRepository.deleteAllByEmail(authentication.getName());
-        // this.userRepository.deleteAllByEmail("test@test.pl");
 
         return "User deleted successfully";
     }
