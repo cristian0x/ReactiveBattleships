@@ -4,7 +4,7 @@ import LoginBox from "../components/Authentication/loginBox";
 import RegisterBox from "../components/Authentication/registerBox";
 import ForgotPasswordBox from "../components/Authentication/forgotPasswordBox";
 
-const Login = ({ setPlayerData, playerData }) => {
+const Authentication = ({ setPlayerData, playerData }) => {
   const [isLoginOpen, setIsLoginOpen] = useState(true);
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
   const [isForgotPasswordOpen, setIsForgotPasswordOpen] = useState(false);
@@ -69,4 +69,4 @@ const Login = ({ setPlayerData, playerData }) => {
   );
 };
 
-export default Login;
+export default Authentication;

@@ -66,6 +66,6 @@ export const playerMove = (
   }
 };
 
-const checkIfShipHit = (clickedRow, clickedColumn, opponentLayout) => {
+export const checkIfShipHit = (clickedRow, clickedColumn, opponentLayout) => {
   return opponentLayout[clickedRow][clickedColumn].isFilled;
 };

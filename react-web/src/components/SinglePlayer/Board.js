@@ -1,27 +1,55 @@
 import React, { useState } from "react";
-import Node from "../Node";
-import { useCycle } from "framer-motion";
-import { playerMove } from "../../functions/HotSeat/playerMove";
-import { placeShips } from "../../functions/HotSeat/placeShips";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion, useCycle } from "framer-motion";
 import { onHover, pageSwitch } from "../../animationVariants/animationVariants";
+import { placeShips } from "../../functions/HotSeat/placeShips";
+import Node from "../Node";
+import { handleGameStart } from "../../functions/SinglePlayer/handleGameStart";
+import { roundCycle } from "../../functions/SinglePlayer/roundCycle";
 
-const GameBoard = ({
+const Board = ({
   whoseTurn,
-  setIsBoardVisible,
-  shipLength,
+  isExpanded,
+  setIsExpanded,
   setIsPlayerPlacingShips,
+  shipLength,
   shipsDirection,
   refreshPage,
+  setIsBoardVisible,
+  aiGrid,
+  setAiGrid,
+  aiMovesInOrder,
+  setAiMovesInOrder,
   hasAlreadyMoved,
   setHasAlreadyMoved,
   hasGameEnded,
   setHasGameEnded,
-  setGameMovesInOrder,
-  isExpanded,
-  setIsExpanded,
 }) => {
   const [lastShipID, setLastShipID] = useCycle(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
+
+  const [hasGameStarted, setHasGameStarted] = useState(false);
+
+  const [aiDifficulty, setAiDifficulty] = useState("");
+  const [aiIterator, setAiIterator] = useState(0);
+
+  const [aiBoard, setAiBoard] = useState(aiGrid[0])
+
+  const resetAiLayout = () => {
+    if (aiIterator) return;
+    let aiGridCopy = aiGrid;
+    for (let i = 0; i < 10; i++) {
+      for (let j = 0; j < 10; j++) {
+        aiGridCopy[0][i][j].missed = false;
+        aiGridCopy[0][i][j].isHit = false;
+      }
+    }
+    setAiGrid(aiGridCopy);
+    setAiBoard(aiGridCopy[0])
+  };
+
+  function handleDifficultyChange(e) {
+    e.preventDefault();
+    setAiDifficulty(e.target.value);
+  }
 
   return (
     <AnimatePresence>
@@ -46,7 +74,7 @@ const GameBoard = ({
                 {currentRow.map((currentNode, nodeIndex) => (
                   <div
                     className="invisibleNode"
-                    onClick={() =>
+                    onClick={() => {
                       placeShips(
                         rowIndex,
                         nodeIndex,
@@ -63,6 +91,8 @@ const GameBoard = ({
                         whoseTurn[6],
                         setIsBoardVisible
                       )
+                    }
+
                     }
                   >
                     <Node
@@ -89,27 +119,28 @@ const GameBoard = ({
                   <div
                     className="invisibleNode"
                     onClick={() => {
-                      playerMove(
+                      if (!aiIterator) {
+                        resetAiLayout()
+                      }
+                      roundCycle(
                         rowIndex,
                         nodeIndex,
                         whoseTurn[1],
+                        whoseTurn[2],
                         whoseTurn[3],
                         whoseTurn[4],
-                        whoseTurn[9],
-                        whoseTurn[10],
+                        aiBoard,
+                        setAiBoard,
+                        aiMovesInOrder,
+                        aiIterator,
+                        setAiIterator,
                         refreshPage,
-                        setIsBoardVisible,
                         whoseTurn[5],
                         hasAlreadyMoved,
                         setHasAlreadyMoved,
                         hasGameEnded,
                         setHasGameEnded,
-                        whoseTurn[0],
-                        whoseTurn[11],
-                        whoseTurn[12],
-                        whoseTurn[13],
-                        whoseTurn[14],
-                        setGameMovesInOrder
+                        whoseTurn[0]
                       );
                     }}
                   >
@@ -130,7 +161,7 @@ const GameBoard = ({
             ))}
           </div>
         </div>
-        {!whoseTurn[5][0] && (
+        {!whoseTurn[5][0] ? (
           <>
             {!isExpanded ? (
               <motion.button
@@ -155,10 +186,48 @@ const GameBoard = ({
               </motion.button>
             )}
           </>
+        ) : (
+          <>
+            {" "}
+            {!hasGameStarted && (
+              <>
+                <select onChange={handleDifficultyChange}>
+                  <option value="" defaultValue>
+                    Please select difficulty
+                  </option>
+                  <option value="easy">easy</option>
+                  <option value="medium">medium</option>
+                  <option value="hard">hard</option>
+                </select>
+                <motion.button
+                  className="button"
+                  disabled={!aiDifficulty}
+                  onClick={() => {
+                    handleGameStart(
+                      setIsExpanded,
+                      setHasGameStarted,
+                      whoseTurn[1],
+                      whoseTurn[13],
+                      whoseTurn[14],
+                      aiDifficulty,
+                      aiGrid,
+                      setAiGrid,
+                      aiMovesInOrder,
+                      setAiMovesInOrder
+                    );
+                  }}
+                  whileHover={onHover.hover}
+                  onTap={{ scale: 0.9 }}
+                >
+                  Start game
+                </motion.button>
+              </>
+            )}
+          </>
         )}
       </motion.div>
     </AnimatePresence>
   );
 };
 
-export default GameBoard;
+export default Board;

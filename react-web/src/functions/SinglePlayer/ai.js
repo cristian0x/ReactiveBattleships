@@ -1,5 +1,5 @@
-import { checkIfTheGameEnded } from "./checkIfTheGameEnded";
-import { checkIfTheShipSank } from "./checkIfTheShipSank";
+import { checkIfTheGameEnded } from "../checkIfTheGameEnded";
+import { checkIfTheShipSank } from "../checkIfTheShipSank";
 
 function getRandomInt(min, max) {
   min = Math.ceil(min);
@@ -16,7 +16,7 @@ function isInRange(rowOrColumn) {
 }
 
 function isInArray(haystack, needle) {
-  var i, j, current;
+  let i, j, current;
   for (i = 0; i < haystack.length; ++i) {
     if (needle.length === haystack[i].length) {
       current = haystack[i];
@@ -48,7 +48,7 @@ function getOppositeDirection(direction) {
   }
 }
 
-export function aiAlgorithm(
+export function ai(
   gridPlayer,
   gridOpponent,
   playerFilledCells,
@@ -74,14 +74,7 @@ export function aiAlgorithm(
     shipIdCountForOpponent.set(i, 0);
   }
 
-  while (
-    !checkIfTheGameEnded(
-      gridPlayer,
-      gridOpponent,
-      playerFilledCells,
-      opponentFilledCells
-    )[0]
-  ) {
+  for (let iterator = 0; iterator < 100; iterator++) {
     var isShotOnTarget = true;
 
     switch (difficultyLevelForPlayer) {
@@ -106,7 +99,6 @@ export function aiAlgorithm(
           }
           if (isInArray(playerFilledCells, itemPlayer)) {
             isShotOnTarget = true;
-            gridPlayer[randomRowPlayer][randomColPlayer].isHit = true;
             shipIdCountForPlayer.set(
               gridPlayer[randomRowPlayer][randomColPlayer].shipId,
               shipIdCountForPlayer.get(
@@ -134,7 +126,6 @@ export function aiAlgorithm(
             }
           } else {
             isShotOnTarget = false;
-            gridPlayer[randomRowPlayer][randomColPlayer].missed = true;
             nodesHitInOrderForPlayer.push(itemPlayer);
             didPlayerHit.push(0);
             hits.push([randomRowPlayer, randomColPlayer, "player", 0, 0, ""]);
@@ -240,8 +231,6 @@ export function aiAlgorithm(
             var isShotOnTarget = true;
 
             if (countOfShotsOnTarget > 0) {
-              gridPlayer[itemPlayer[0]][itemPlayer[1]].isHit = true;
-
               shipIdCountForPlayer.set(
                 gridPlayer[itemPlayer[0]][itemPlayer[1]].shipId,
                 shipIdCountForPlayer.get(
@@ -267,8 +256,6 @@ export function aiAlgorithm(
                 hits.push([itemPlayer[0], itemPlayer[1], "player", 1, 0, ""]);
               }
             } else {
-              gridPlayer[randomRowPlayer][randomColPlayer].isHit = true;
-
               shipIdCountForPlayer.set(
                 gridPlayer[randomRowPlayer][randomColPlayer].shipId,
                 shipIdCountForPlayer.get(
@@ -313,13 +300,11 @@ export function aiAlgorithm(
             if (countOfShotsOnTarget > 0) {
               isShotOnTarget = false;
               countOfShotsOnTarget = 0;
-              gridPlayer[itemPlayer[0]][itemPlayer[1]].missed = true;
               nodesHitInOrderForPlayer.push(itemPlayer);
               hits.push([itemPlayer[0], itemPlayer[1], "player", 0, 0, ""]);
             } else {
               isShotOnTarget = false;
               countOfShotsOnTarget = 0;
-              gridPlayer[randomRowPlayer][randomColPlayer].missed = true;
               nodesHitInOrderForPlayer.push(itemPlayer);
               hits.push([randomRowPlayer, randomColPlayer, "player", 0, 0, ""]);
             }
@@ -472,8 +457,6 @@ export function aiAlgorithm(
             var isShotOnTarget = true;
 
             if (countOfShotsOnTarget > 0) {
-              gridPlayer[itemPlayer[0]][itemPlayer[1]].isHit = true;
-
               shipIdCountForPlayer.set(
                 gridPlayer[itemPlayer[0]][itemPlayer[1]].shipId,
                 shipIdCountForPlayer.get(
@@ -499,8 +482,6 @@ export function aiAlgorithm(
                 hits.push([itemPlayer[0], itemPlayer[1], "player", 1, 0, ""]);
               }
             } else {
-              gridPlayer[randomRowPlayer][randomColPlayer].isHit = true;
-
               shipIdCountForPlayer.set(
                 gridPlayer[randomRowPlayer][randomColPlayer].shipId,
                 shipIdCountForPlayer.get(
@@ -553,13 +534,12 @@ export function aiAlgorithm(
             if (countOfShotsOnTarget > 0) {
               isShotOnTarget = false;
               countOfShotsOnTarget = 0;
-              gridPlayer[itemPlayer[0]][itemPlayer[1]].missed = true;
+
               nodesHitInOrderForPlayer.push(itemPlayer);
               hits.push([itemPlayer[0], itemPlayer[1], "player", 0, 0, ""]);
             } else {
               isShotOnTarget = false;
               countOfShotsOnTarget = 0;
-              gridPlayer[randomRowPlayer][randomColPlayer].missed = true;
               nodesHitInOrderForPlayer.push(itemPlayer);
               hits.push([randomRowPlayer, randomColPlayer, "player", 0, 0, ""]);
             }

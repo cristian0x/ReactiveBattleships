@@ -1,5 +1,5 @@
 import React from "react";
-import Node from "../components/node";
+import Node from "../components/Node";
 import "../styles/game.css";
 import { automaticShipLayout } from "../functions/automaticShipLayout.js";
 import { aiAlgorithm } from "../functions/aiAlgorithm";
@@ -50,19 +50,7 @@ const resetShipLayout = () => {
   return initialGrid;
 };
 
-function isInArray(haystack, needle) {
-  var i, j, current;
-  for (i = 0; i < haystack.length; ++i) {
-    if (needle.length === haystack[i].length) {
-      current = haystack[i];
-      for (j = 0; j < needle.length && needle[j] === current[j]; ++j);
-      if (j === needle.length) return true;
-    }
-  }
-  return false;
-}
-
-const Game = () => {
+const ComputersBattle = () => {
   const [gridPlayer, setGridPlayer] = useState(createGrid());
   const [gridOpponent, setGridOpponent] = useState(createGrid());
   const [areGridsFilled, setAreGridsFilled] = useState(false);
@@ -72,7 +60,6 @@ const Game = () => {
   const [difficultyLevelForPlayer, setDifficultyLevelForPlayer] = useState("");
   const [difficultyLevelForOpponent, setDifficultyLevelForOpponent] =
     useState("");
-  const [gameStarted, setGameStarted] = useState(false);
 
   const visualizeAutomaticShipLayout = () => {
     let dataFromAutomaticShipLayout = automaticShipLayout(resetShipLayout());
@@ -92,21 +79,16 @@ const Game = () => {
     return newGrid;
   };
 
-  const animateAiAlgorithm = (
-    nodesHitInOrderForPlayer,
-    nodesHitInOrderForOpponent,
-    shipHitPlayer,
-    shipHitOpponent,
-    didPlayerHit,
-    didOpponentHit,
-    hits
-  ) => {
-    var hitCount =
-      nodesHitInOrderForPlayer.length < nodesHitInOrderForOpponent.length
-        ? nodesHitInOrderForPlayer.length
-        : nodesHitInOrderForOpponent.length;
-
+  const animateAiAlgorithm = (hits) => {
     console.log(hits);
+
+    document
+      .getElementById("resetShipsButton")
+      .setAttribute("disabled", "disabled");
+
+    document
+      .getElementById("startGameButton")
+      .setAttribute("disabled", "disabled");
 
     for (let i = 0; i < hits.length; i++) {
       setTimeout(() => {
@@ -117,9 +99,8 @@ const Game = () => {
                 `node-${hits[i][0]}-${hits[i][1]}-${true}`
               ).className = "node node-hit";
               if (hits[i][4] === 1) {
-                console.log("The player's " + hits[i][5] + " was sunk");
-                //document.getElementsByClassName("showSunkenShip").innerHTML =
-                //"The player's " + hits[i][5] + " was sunk";
+                document.getElementById("showSunkenShip").innerHTML =
+                  "The left computer's " + hits[i][5] + " was sunk";
               }
             } else {
               document.getElementById(
@@ -133,9 +114,8 @@ const Game = () => {
                 `node-${hits[i][0]}-${hits[i][1]}-${false}`
               ).className = "node node-hit";
               if (hits[i][4] === 1) {
-                console.log("The opponent's " + hits[i][5] + " was sunk");
-                //document.getElementsByClassName("showSunkenShip").innerHTML =
-                //"The opponent's " + hits[i][5] + " was sunk";
+                document.getElementById("showSunkenShip").innerHTML =
+                  "The right computer's " + hits[i][5] + " was sunk";
               }
             } else {
               document.getElementById(
@@ -147,76 +127,25 @@ const Game = () => {
           default:
             break;
         }
-      }, 700 * i); // 700
-    }
-
-    /*
-    for (let i = 0; i < hitCount; i++) {
-      console.log(i);
-      let itemPlayer = [
-        nodesHitInOrderForPlayer[i][0],
-        nodesHitInOrderForPlayer[i][1],
-      ];
-      let itemOpponent = [
-        nodesHitInOrderForOpponent[i][0],
-        nodesHitInOrderForOpponent[i][1],
-      ];
-
-      if (i === 0) {
-        if (isInArray(shipHitOpponent, itemOpponent)) {
-          document.getElementById(
-            `node-${nodesHitInOrderForOpponent[i][0]}-${
-              nodesHitInOrderForOpponent[i][1]
-            }-${false}`
-          ).className = "node node-hit";
-        } else {
-          document.getElementById(
-            `node-${nodesHitInOrderForOpponent[i][0]}-${
-              nodesHitInOrderForOpponent[i][1]
-            }-${false}`
-          ).className = "node node-missed";
+        if (i === hits.length - 1) {
+          showTheWinner(hits);
+          document
+            .getElementById("resetShipsButton")
+            .removeAttribute("disabled");
         }
-      } else {
-        var count = 0;
-        setTimeout(() => {
-          for (let k = i; k < didPlayerHit.length; k++) {
-            if (didPlayerHit[k] == 1) count++;
-            else break;
-          }
-          for (let k = 0; k <= count; k++) {
-            if (isInArray(shipHitPlayer, itemPlayer)) {
-              document.getElementById(
-                `node-${nodesHitInOrderForPlayer[i + k][0]}-${
-                  nodesHitInOrderForPlayer[i + k][1]
-                }-${true}`
-              ).className = "node node-hit";
-            } else {
-              document.getElementById(
-                `node-${nodesHitInOrderForPlayer[i + k][0]}-${
-                  nodesHitInOrderForPlayer[i + k][1]
-                }-${true}`
-              ).className = "node node-missed";
-            }
-          }
+      }, 700 * i);
+    }
+  };
 
-          setTimeout(() => {
-            if (isInArray(shipHitOpponent, itemOpponent)) {
-              document.getElementById(
-                `node-${nodesHitInOrderForOpponent[i][0]}-${
-                  nodesHitInOrderForOpponent[i][1]
-                }-${false}`
-              ).className = "node node-hit";
-            } else {
-              document.getElementById(
-                `node-${nodesHitInOrderForOpponent[i][0]}-${
-                  nodesHitInOrderForOpponent[i][1]
-                }-${false}`
-              ).className = "node node-missed";
-            }
-          }, 300 * i); // 300
-        }, 2500 * i); // 2500
-      }
-    }*/
+  const showTheWinner = (hits) => {
+    let winner;
+    if (hits[hits.length - 1][2] == "player") {
+      winner = "right computer";
+    } else {
+      winner = "left computer";
+    }
+    document.getElementById("showSunkenShip").innerHTML =
+      "The " + winner + " won";
   };
 
   const handleDifficultyChangeForPlayer = (e) => {
@@ -297,9 +226,9 @@ const Game = () => {
         </div>
       </div>
       <select
-        name="selectDifficultyForComputer1"
-        id="selectDifficultyForComputer1"
-        onChange={handleDifficultyChangeForPlayer}
+        name="selectDifficultyForComputer2"
+        id="selectDifficultyForComputer2"
+        onChange={handleDifficultyChangeForOpponent}
       >
         <option value="" defaultValue>
           Please select difficulty
@@ -309,9 +238,9 @@ const Game = () => {
         <option value="hard">hard</option>
       </select>
       <select
-        name="selectDifficultyForComputer2"
-        id="selectDifficultyForComputer2"
-        onChange={handleDifficultyChangeForOpponent}
+        name="selectDifficultyForComputer1"
+        id="selectDifficultyForComputer1"
+        onChange={handleDifficultyChangeForPlayer}
       >
         <option value="" defaultValue>
           Please select difficulty
@@ -349,6 +278,7 @@ const Game = () => {
         Generate ships
       </motion.button>
       <motion.button
+        id="resetShipsButton"
         className="rotateButton"
         whileHover={onHover.hover}
         onTap={{ scale: 0.9 }}
@@ -359,11 +289,15 @@ const Game = () => {
           setGridOpponent(resetShipLayout());
           setOpponentFilledCells([]);
           setAreGridsFilled(false);
+          document
+            .getElementById("startGameButton")
+            .removeAttribute("disabled");
         }}
       >
         Reset ships
       </motion.button>
       <motion.button
+        id="startGameButton"
         className="rotateButton"
         whileHover={onHover.hover}
         onTap={{ scale: 0.9 }}
@@ -373,33 +307,20 @@ const Game = () => {
             difficultyLevelForPlayer.length === 0 ||
             difficultyLevelForOpponent.length === 0
           ) {
-            console.log(
-              "Grids are empty or the difficulty level is not chosen!"
-            );
+            document.getElementById("showSunkenShip").innerHTML =
+              "Grids are empty or the difficulty level is not chosen!";
           } else {
-            //animateAiAlgorithm();
+            document.getElementById("showSunkenShip").innerHTML = "";
             let dataFromAiAlgorithm = visualizeAiAlgorithm();
-            //setGridPlayer(dataFromAiAlgorithm[0].slice());
-            //setGridOpponent(dataFromAiAlgorithm[1].slice());
-            //setDisable(true);
-
-            animateAiAlgorithm(
-              dataFromAiAlgorithm[2],
-              dataFromAiAlgorithm[3],
-              dataFromAiAlgorithm[4],
-              dataFromAiAlgorithm[5],
-              dataFromAiAlgorithm[6],
-              dataFromAiAlgorithm[7],
-              dataFromAiAlgorithm[8]
-            );
+            animateAiAlgorithm(dataFromAiAlgorithm[8]);
           }
         }}
       >
         Start a game!
       </motion.button>
-      <div className="showSunkenShip"></div>
+      <div id="showSunkenShip"></div>
     </>
   );
 };
 
-export default Game;
+export default ComputersBattle;

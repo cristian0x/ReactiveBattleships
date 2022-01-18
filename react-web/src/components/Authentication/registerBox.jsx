@@ -11,6 +11,8 @@ const RegisterBox = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
 
+  const [haveRegistred, setHaveRegistred] = useState(false);
+
   function onLoginChange(e) {
     setLogin(e.target.value);
   }
@@ -34,6 +36,7 @@ const RegisterBox = () => {
   async function handleRegistration(e) {
     e.preventDefault();
     await registerUser(firstName, lastName, email, login, password);
+    setHaveRegistred(true);
   }
 
   return (
@@ -83,12 +86,22 @@ const RegisterBox = () => {
         value={password}
         onChange={onPasswordChange}
       />
-      <input
-        type="button"
-        className="fadeIn fourth"
-        value="Sign up"
-        onClick={handleRegistration}
-      />
+      {!haveRegistred ? (
+        <input
+          type="button"
+          className="fadeIn fourth"
+          value="Sign up"
+          onClick={handleRegistration}
+        />
+      ) : (
+        <input
+          type="button"
+          className="fadeIn fourth"
+          value="Registration completed."
+          disabled={true}
+          onClick={handleRegistration}
+        />
+      )}
     </form>
   );
 };
