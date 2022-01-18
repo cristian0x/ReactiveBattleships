@@ -27,7 +27,6 @@ public class SavedGamesService {
                            final Authentication authentication) {
 
         if (!authentication.getName().equals(savedGameDTO.getSavedBy())) {
-//        if (!savedGameDTO.getSavedBy().equals("test@test.pl")) {
             LOGGER.warn("saveGame() logged user is different than one that saves this game {}", authentication.getName());
             throw new SavedGamesException.IncorrectIdsException();
         }
@@ -41,7 +40,6 @@ public class SavedGamesService {
 
     public List<SavedGame> getGames(final Authentication authentication) {
         return this.savedGamesRepository.findAllBySavedBy(authentication.getName());
-        // return this.savedGamesRepository.findAllBySavedBy("test@test.pl");
     }
 
     public SavedGame getGameById(final String id,
@@ -53,7 +51,6 @@ public class SavedGamesService {
                                         : null;
 
             if (!Objects.isNull(foundGame) && Objects.equals(foundGame.getSavedBy(), authentication.getName())) {
-            // if (!Objects.isNull(foundGame) && Objects.equals(foundGame.getSavedBy(), "test@test.pl")) {
                 LOGGER.debug("getGameById() game for id {} found successfully", id);
                 return foundGame;
             }
@@ -68,11 +65,6 @@ public class SavedGamesService {
 
     public String deleteGameById(final String id,
                                  final Authentication authentication) {
-
-//        final User authUser = this.userRepository.findByEmail("test@test.pl").isPresent()
-//                                    ? this.userRepository.findByEmail("test@test.pl").get()
-//                                    : null;
-
         final User authUser = this.userRepository.findByEmail(authentication.getName()).isPresent()
                                     ? this.userRepository.findByEmail(authentication.getName()).get()
                                     : null;

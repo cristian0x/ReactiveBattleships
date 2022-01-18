@@ -57,8 +57,8 @@ public class UserController {
     }
 
     @GetMapping("leaderboard")
-    public List<UserDTO> getLeaderboard(final Authentication authentication) {
-        return this.userService.getAllUsers(authentication);
+    public List<UserDTO> getLeaderboard() {
+        return this.userService.getAllUsers();
     }
 
     @GetMapping("updateProfile")
