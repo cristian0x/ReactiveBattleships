@@ -1,1 +1,3 @@
-# ReactiveBattleships
+# Battleships
+
+## Technologies used
