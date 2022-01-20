@@ -8,10 +8,12 @@ Frontend - JavaScript, React, axios
 ## Starting project  
 **Backend:**  
 Choose marked file on a screenshot below  
+
 ![image](https://user-images.githubusercontent.com/56030688/150394604-9a294e37-a3b3-4961-b6a0-a3d3a315b90b.png)
 
 .then()
-Start application using one of the triangles below
+Start application using one of the triangles below  
+
 ![image](https://user-images.githubusercontent.com/56030688/150394894-5bc527c3-7052-4a3a-bf7b-3965dd4e98af.png)
 
 One more thing to do is to start maildev.  
