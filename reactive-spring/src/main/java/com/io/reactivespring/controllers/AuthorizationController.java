@@ -8,8 +8,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
 @CrossOrigin("*")
+@RestController
 @RequestMapping(path="/auth")
 @AllArgsConstructor
 public class AuthorizationController {

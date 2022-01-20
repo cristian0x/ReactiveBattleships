@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 
-export default function useAxiosGet(url) {
+export default function useAxiosGet(url, email) {
   const [data, setData] = useState([]);
   const [isPending, setIsPending] = useState(true);
   const [error, setError] = useState(null);
@@ -9,11 +9,17 @@ export default function useAxiosGet(url) {
   const CancelToken = axios.CancelToken;
   const source = CancelToken.source();
 
+  const token = sessionStorage.getItem(email)
+
   async function getData() {
     setIsPending(true);
     try {
       const { data } = await axios.get(url, {
         cancelToken: source.token,
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+
       });
       setData(data);
       setIsPending(false);

@@ -3,6 +3,7 @@ import { onHover, pageSwitch } from "../../animationVariants/animationVariants";
 import { motion } from "framer-motion";
 import { useHistory } from "react-router-dom";
 import {saveGame} from "../../services/saveGame";
+import {updatePlayer} from "../../services/updatePlayer";
 
 const WinnerPage = ({ hasGameEnded, gameMovesInOrder, player1Data, player2Data }) => {
   const history = useHistory();
@@ -11,6 +12,11 @@ const WinnerPage = ({ hasGameEnded, gameMovesInOrder, player1Data, player2Data }
     e.preventDefault()
     console.log(gameMovesInOrder)
     await saveGame(player1Data, player2Data, gameMovesInOrder)
+    if (hasGameEnded[1] === player1Data[0].nickname) {
+      await updatePlayer(player1Data[0].email)
+      return
+    }
+    await updatePlayer(player2Data[0].email)
   }
 
   return (

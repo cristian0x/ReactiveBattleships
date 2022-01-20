@@ -1,10 +1,14 @@
-import React from "react";
+import React, {useContext} from "react";
 import { pageSwitch } from "../animationVariants/animationVariants";
 import { motion } from "framer-motion";
 import { getLeaderboard } from "../services/leaderboard";
+import {PlayersContext} from "../providers/PlayersContext";
 
 const Leaderboard = () => {
-  const data = getLeaderboard();
+  const { player1Data, setPlayer1Data, player2Data, setPlayer2Data } =
+    useContext(PlayersContext);
+
+  const data = getLeaderboard(player1Data[0].email);
 
   return (
     <motion.div

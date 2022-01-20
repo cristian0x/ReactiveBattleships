@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../../styles/login.css";
 import {logIn} from "../../services/logIn";
+import {getToken} from "../../services/getToken";
 
 const LoginBox = ({ setPlayerData, playerData }) => {
   const [email, setEmail] = useState("");
@@ -17,6 +18,13 @@ const LoginBox = ({ setPlayerData, playerData }) => {
   async function handleLogin(e) {
     e.preventDefault();
     await logIn(email, password, setPlayerData)
+    const token = await getToken(email, password)
+    if (!token.jwtToken) {
+      setPlayerData({}, false)
+      alert("Failed to authenticate user!")
+      return
+    }
+    sessionStorage.setItem(email, token.jwtToken)
   }
 
   function handleLogOut(e) {
@@ -24,6 +32,7 @@ const LoginBox = ({ setPlayerData, playerData }) => {
     setEmail("");
     setPassword("");
     setPlayerData([{}, false]);
+    sessionStorage.removeItem(email)
   }
 
   return (
