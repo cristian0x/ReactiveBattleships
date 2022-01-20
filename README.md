@@ -28,3 +28,13 @@ follow this tutorial and install maildev globaly and start it in project directo
 ### **Frontend:**  
 Go to project directory in terminal and run ,,npm install" it may take a while so don't worry.  
 When installation process is finished run ,,npm start" - here you go, you can start using application :D
+
+
+### ** Browser: **
+Unfortunately we have issues with CORS policy and did not manage to fix it.  
+So you have to run you chrome browser using win+R and typing "chrome.exe --user-data-dir="C://Chrome dev session" --disable-web-security".  
+
+![image](https://user-images.githubusercontent.com/56030688/150396876-01292047-4456-4779-8bac-d879aa803bf7.png)  
+
+Really sorry about that, will fix it later :c
+
