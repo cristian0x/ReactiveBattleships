@@ -23,6 +23,7 @@ First of all you have to install npm (node package manager) - it will be neseser
 
 
 
+
 ### **Frontend:**  
 Go to project directory in terminal and run ,,npm install" it may take a while so don't worry.  
 When installation process is finished run ,,npm start" - here you go, you can start using application :D
