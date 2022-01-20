@@ -30,7 +30,7 @@ Go to project directory in terminal and run ,,npm install" it may take a while s
 When installation process is finished run ,,npm start" - here you go, you can start using application :D
 
 
-### ** Browser: **
+### **Browser:**  
 Unfortunately we have issues with CORS policy and did not manage to fix it.  
 So you have to run you chrome browser using win+R and typing "chrome.exe --user-data-dir="C://Chrome dev session" --disable-web-security".  
 
