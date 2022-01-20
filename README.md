@@ -19,7 +19,8 @@ Start application using one of the triangles below
 One more thing to do is to start maildev.  
 
 First of all you have to install npm (node package manager) - it will be nesesery to start React application later on.  
-.then() => follow this tutorial and install maildev globaly and start it in project directory
+.then() =>   
+follow this tutorial and install maildev globaly and start it in project directory
 
 
 
