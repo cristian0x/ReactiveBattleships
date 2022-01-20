@@ -60,7 +60,7 @@ const Replay = ({ replay }) => {
       .setAttribute("disabled", "disabled");
 
     for (let i = 0; i < hits.length; i++) {
-      setTimeout(() => {
+      const animationCycle = setTimeout(() => {
         switch (hits[i][2]) {
           case "player":
             if (hits[i][3] === 1) {

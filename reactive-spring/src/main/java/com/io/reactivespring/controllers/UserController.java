@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
 @CrossOrigin("*")
+@RestController
 @RequestMapping(path="/user")
 @AllArgsConstructor
 public class UserController {
@@ -61,7 +61,7 @@ public class UserController {
         return this.userService.getAllUsers();
     }
 
-    @GetMapping("updateProfile")
+    @PostMapping("updateProfile")
     public String updateProfile(final Authentication authentication,
                                 @RequestBody ProfileUpdateDTO updateRequest) {
         return this.userService.updateProfile(authentication, updateRequest);

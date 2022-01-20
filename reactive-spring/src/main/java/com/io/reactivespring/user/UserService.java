@@ -87,7 +87,11 @@ public class UserService {
     public String updateProfile(final Authentication authentication,
                                 final ProfileUpdateDTO updateRequest) {
         LOGGER.info("updateProfile() for user with email {}", authentication.getName());
-        this.userRepository.updateProfile(authentication.getName(), updateRequest.getIsWin(), updateRequest.getNumberOfShots(), updateRequest.getSuccessfulHits());
+        if (!updateRequest.getEmail().equals(authentication.getName())) {
+            LOGGER.warn("User does not match update request!");
+            throw new AuthorizationException.EmailValidationException();
+        }
+        this.userRepository.updateProfile(updateRequest.getEmail(), updateRequest.getIsWin(), updateRequest.getNumberOfShots(), updateRequest.getSuccessfulHits());
 
         return "Profile update successful";
     }

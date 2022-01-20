@@ -10,6 +10,7 @@ import lombok.ToString;
 @EqualsAndHashCode
 @ToString
 public class ProfileUpdateDTO {
+    private final String email;
     private final Long isWin;
     private final Long numberOfShots;
     private final Long successfulHits;

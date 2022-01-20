@@ -1,10 +1,10 @@
 import axios from "axios";
 import useAxiosGet from "../hooks/useAxiosGet";
 
-export const getLeaderboard = () => {
+export const getLeaderboard = (email) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { data, isPending, error } = useAxiosGet(
-    "http://localhost:8080/user/leaderboard"
+    "http://localhost:8080/user/leaderboard", email
   );
   return data.sort(compare);
 };

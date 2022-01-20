@@ -9,6 +9,7 @@ import { useState } from "react";
 import { PlayersContext } from "./providers/PlayersContext";
 import SinglePlayer from "./pages/SinglePlayer";
 import Replay from "./components/Replays/Replay";
+import {logIn} from "./services/logIn";
 
 
 function App() {
