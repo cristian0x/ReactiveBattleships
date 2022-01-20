@@ -2,12 +2,12 @@
 This game has been created as university project.
 
 ## Technologies used
-Backend - Java, Spring Boot, PostgeSQL, maildev
-Frontend - JavaScript, React, axios
+Backend - Java, Spring Boot, PostgeSQL, maildev  
+Frontend - JavaScript, React, axios  
 
-## Starting project
-Backend:
-Choose marked file on a screenshot below
+## Starting project  
+Backend:  
+Choose marked file on a screenshot below  
 ![image](https://user-images.githubusercontent.com/56030688/150394604-9a294e37-a3b3-4961-b6a0-a3d3a315b90b.png)
 
 .then()
