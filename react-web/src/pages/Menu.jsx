@@ -87,7 +87,7 @@ const Menu = () => {
         <motion.div
           className="chooseMode"
           onClick={() => {
-            if (!player2Data[0].email || !player1Data[0].email) {
+            if (!(player2Data[0].email || player1Data[0].email)) {
               alert("There are no users logged in!");
               return;
             }
@@ -104,7 +104,7 @@ const Menu = () => {
         <motion.div
           className="chooseMode"
           onClick={() => {
-            if (!player2Data[0].email || !player1Data[0].email) {
+            if (!(player2Data[0].email || player1Data[0].email)) {
               alert("There aren't any users logged in!");
               return;
             }
