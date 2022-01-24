@@ -18,6 +18,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
 import static com.io.reactivespring.utils.UserMapper.userToUserDTO;
@@ -39,13 +40,25 @@ public class RegistrationService {
 
     public String register(final RegistrationDTO request) {
         if(!emailValidator.test(request.getEmail())) {
+            LOGGER.info("register() email invalid for {}", request.getEmail());
             throw new AuthorizationException.InvalidEmailException(request.getEmail());
         }
+        LOGGER.info("register() creating token for request {}", request);
         final String token = userService.singUpUser(new User(request.getFirstname(), request.getLastname(), request.getNickname(),
                 request.getEmail(), request.getPassword(), UserRole.USER));
         emailSender.send(request.getEmail(), this.buildEmail(request.getFirstname(), String.format(EMAIL_LINK, token)));
+        LOGGER.debug("register() token created!");
 
         return token;
+    }
+
+    public String multipleRegistration(List<RegistrationDTO> registrationDTOs) {
+        LOGGER.info("multipleRegistration() registering multiple users");
+
+        for(RegistrationDTO registrationDTO : registrationDTOs) {
+            this.confirmToken(this.register(registrationDTO));
+        }
+        return "It works!";
     }
 
     public UserDTO login(final LoginDTO request) {
@@ -74,24 +87,26 @@ public class RegistrationService {
         return userToUserDTO(notVerifiedUser);
     }
 
-
-
     @Transactional
     public String confirmToken(String token) {
+        LOGGER.info("confirmToken() started confirming token {}", token);
         final ConfirmationToken confirmationToken = confirmationTokenService
                 .getToken(token)
                 .orElseThrow(() -> new AuthorizationException.TokenNotFoundException(token));
 
         if (confirmationToken.getConfirmed() != null) {
+            LOGGER.info("confirmToken() token {} already confirmed!", token);
             throw new AuthorizationException.TokenAlreadyConfirmedException(token);
         }
 
         if (confirmationToken.getExpires().isBefore(LocalDateTime.now())) {
+            LOGGER.info("confirmToken() token {} expired!", token);
             throw new AuthorizationException.TokenExpiredException(token);
         }
 
         confirmationTokenService.setConfirmed(token);
         userService.enableAppUser(confirmationToken.getUser().getEmail());
+        LOGGER.info("confirmToken() token successfully confirmed!");
 
         return "Token confirmed";
     }

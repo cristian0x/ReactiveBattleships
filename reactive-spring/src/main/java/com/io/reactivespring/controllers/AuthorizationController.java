@@ -8,8 +8,10 @@ import lombok.AllArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin("*")
+import java.util.List;
+
 @RestController
+@CrossOrigin("*")
 @RequestMapping(path="/auth")
 @AllArgsConstructor
 public class AuthorizationController {
@@ -19,6 +21,11 @@ public class AuthorizationController {
     @PostMapping(path="registration")
     public String register(@RequestBody RegistrationDTO request) {
         return this.registrationService.register(request);
+    }
+
+    @PostMapping(path="multipleRegistration")
+    public String multipleRegistration(@RequestBody List<RegistrationDTO> registrationDTOs) {
+        return this.registrationService.multipleRegistration(registrationDTOs);
     }
 
     @GetMapping(path="registration/confirm")

@@ -13,6 +13,6 @@ public class RegistrationDTO {
     private final String firstname;
     private final String lastname;
     private final String nickname;
-    private final String password;
+    @ToString.Exclude private final String password;
     private final String email;
 }
