@@ -19,7 +19,7 @@ const Leaderboard = () => {
     >
       <h5 className="battleshipsText">Leaderboard</h5>
       {data.map((user) => (
-        <div className="chooseMode" key={user.id}>
+        <div className="leaderBoardItem" key={user.id}>
           <h5 className="chooseModeText">
             {" "}
             {user.nickname + " " + user.gamesWon}{" "}

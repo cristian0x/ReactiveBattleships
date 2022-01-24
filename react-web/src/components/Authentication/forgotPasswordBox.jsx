@@ -3,7 +3,7 @@ import { useState } from "react/cjs/react.development";
 import "../../styles/login.css";
 import { changePassword } from "../../services/changePassword";
 
-const ForgotPasswordBox = () => {
+const ForgotPasswordBox = ({ showLoginBox }) => {
   const [login, setLogin] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -27,7 +27,12 @@ const ForgotPasswordBox = () => {
 
   async function handlePasswordChange(e) {
     e.preventDefault();
-    await changePassword(email, login, oldPassword, password);
+    const result = await changePassword(email, login, oldPassword, password);
+    if (!result[0]) {
+      alert(result[1]);
+      return;
+    }
+    showLoginBox();
   }
 
   return (

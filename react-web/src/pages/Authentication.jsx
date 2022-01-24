@@ -28,31 +28,31 @@ const Authentication = ({ setPlayerData, playerData }) => {
   }
 
   return (
-      <div id="formContent">
-        <button id="btns" onClick={showLoginBox} disabled={playerData[1]} >
-          <h2 className={isLoginOpen ? "active" : "inactive underlineHover"}>
-            {" "}
-            Sign In{" "}
-          </h2>
-        </button>
-        <button id="btns" onClick={showRegisterBox} disabled={playerData[1]}>
-          <h2 className={isRegisterOpen ? "active" : "inactive underlineHover"}>
-            {" "}
-            Sign Up{" "}
-          </h2>
-        </button>
-        <div className="fadeIn first"></div>
+    <div id="formContent">
+      <button id="btns" onClick={showLoginBox} disabled={playerData[1]}>
+        <h2 className={isLoginOpen ? "active" : "inactive underlineHover"}>
+          {" "}
+          Sign In{" "}
+        </h2>
+      </button>
+      <button id="btns" onClick={showRegisterBox} disabled={playerData[1]}>
+        <h2 className={isRegisterOpen ? "active" : "inactive underlineHover"}>
+          {" "}
+          Sign Up{" "}
+        </h2>
+      </button>
+      <div className="fadeIn first"></div>
 
-        {isLoginOpen && (
-          <LoginBox
-            setPlayerData={setPlayerData}
-            playerData={playerData}
-          />
-        )}
-        {isRegisterOpen && <RegisterBox />}
-        {isForgotPasswordOpen && <ForgotPasswordBox />}
+      {isLoginOpen && (
+        <LoginBox setPlayerData={setPlayerData} playerData={playerData} />
+      )}
+      {isRegisterOpen && <RegisterBox />}
+      {isForgotPasswordOpen && (
+        <ForgotPasswordBox {...{ showLoginBox }} />
+      )}
 
-        {playerData[1] && (<div id="formFooter">
+      {playerData[1] && (
+        <div id="formFooter">
           <h2
             className={
               isForgotPasswordOpen ? "active" : "inactive underlineHover"
@@ -62,8 +62,9 @@ const Authentication = ({ setPlayerData, playerData }) => {
             {" "}
             Change password{" "}
           </h2>
-        </div> )}
-      </div>
+        </div>
+      )}
+    </div>
   );
 };
 

@@ -87,6 +87,10 @@ const Menu = () => {
         <motion.div
           className="chooseMode"
           onClick={() => {
+            if (!player2Data[0].email || !player1Data[0].email) {
+              alert("There are no users logged in!");
+              return;
+            }
             history.push("/leaderboard");
           }}
           initial={rightBoxVariants.hidden}
@@ -100,6 +104,10 @@ const Menu = () => {
         <motion.div
           className="chooseMode"
           onClick={() => {
+            if (!player2Data[0].email || !player1Data[0].email) {
+              alert("There aren't any users logged in!");
+              return;
+            }
             history.push("/saved-sea-battles");
           }}
           initial={leftBoxVariants.hidden}

@@ -15,7 +15,8 @@ export const changePassword = async (email, login, oldPassword, newPassword) => 
         Authorization: `Bearer ${token}`
       }
     })
+    return [true, "Success!"]
   } catch (error) {
-    console.log(error)
+    return [false, error.response.data.message]
   }
 }
