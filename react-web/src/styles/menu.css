@@ -64,3 +64,15 @@ body {
   flex: 1;
   flex-direction: row;
 }
+
+.leaderBoardItem {
+  background: transparent;
+  border-radius: 50px;
+  border: 3px solid white;
+  margin-top: 20px;
+  width: 40%;
+  height: 10vh;
+  flex-wrap: wrap;
+  cursor: pointer;
+}
+

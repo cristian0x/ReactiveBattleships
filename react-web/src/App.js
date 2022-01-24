@@ -5,23 +5,31 @@ import Menu from "./pages/Menu";
 import HotSeat from "./pages/HotSeat";
 import Leaderboard from "./pages/Leaderboard";
 import SavedSeaBattles from "./pages/SavedSeaBattles";
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import { PlayersContext } from "./providers/PlayersContext";
 import SinglePlayer from "./pages/SinglePlayer";
 import Replay from "./components/Replays/Replay";
-import {logIn} from "./services/logIn";
-
+import { logIn } from "./services/logIn";
+import { registerUser } from "./services/register";
+import { getToken } from "./services/getToken";
 
 function App() {
   const [player1Data, setPlayer1Data] = useState([{}, false]);
   const [player2Data, setPlayer2Data] = useState([{}, false]);
 
   useEffect(() => {
-    //if(!window.sessionStorage.length) return
+    if (!window.sessionStorage.length) return;
+    let usersArray = [];
     Object.keys(sessionStorage).map((email) => {
-      console.log(email)
-    })
-  }, [])
+      usersArray.push(email);
+    });
+    if (usersArray.length === 1) {
+      setPlayer1Data([{ email: usersArray[0], nickname: usersArray[0] }, true]);
+      return;
+    }
+    setPlayer1Data([{ email: usersArray[0], nickname: usersArray[0] }, true]);
+    setPlayer2Data([{ email: usersArray[1], nickname: usersArray[1] }, true]);
+  }, []);
 
   return (
     <div className="App">

@@ -21,7 +21,9 @@ const LoginBox = ({ setPlayerData, playerData }) => {
       alert("User already logged!");
       return;
     }
-    await logIn(email, password, setPlayerData);
+    const userData = await logIn(email, password);
+    if (!userData) return;
+    setPlayerData([userData, true]);
     const token = await getToken(email, password);
     if (!token.jwtToken) {
       setPlayerData({}, false);
@@ -33,7 +35,7 @@ const LoginBox = ({ setPlayerData, playerData }) => {
 
   function handleLogOut(e) {
     e.preventDefault();
-    sessionStorage.removeItem(email);
+    sessionStorage.removeItem(playerData[0].email);
     setEmail("");
     setPassword("");
     setPlayerData([{}, false]);
@@ -78,7 +80,7 @@ const LoginBox = ({ setPlayerData, playerData }) => {
             className="fadeIn second"
             name="email"
             placeholder={playerData[0].email}
-            value={email}
+            value={playerData[0].email}
           />{" "}
           <input
             disabled={true}

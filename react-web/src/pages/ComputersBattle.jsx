@@ -7,6 +7,8 @@ import { useState } from "react/cjs/react.development";
 import { onHover } from "../animationVariants/animationVariants";
 import { motion } from "framer-motion";
 import { useHistory } from "react-router-dom";
+import { saveGame } from "../services/saveGame";
+import { saveGameAi } from "../services/saveGameAi";
 
 const createGrid = () => {
   const grid = [];
@@ -62,8 +64,12 @@ const ComputersBattle = () => {
   const [difficultyLevelForOpponent, setDifficultyLevelForOpponent] =
     useState("");
 
-  const [isVisible, setIsVisible] = useState(false)
-  const history = useHistory()
+  const [isVisible, setIsVisible] = useState(false);
+  const history = useHistory();
+
+  const handleSaveGame = async () => {
+    history.push("/");
+  };
 
   const visualizeAutomaticShipLayout = () => {
     let dataFromAutomaticShipLayout = automaticShipLayout(resetShipLayout());
@@ -84,8 +90,6 @@ const ComputersBattle = () => {
   };
 
   const animateAiAlgorithm = (hits) => {
-    console.log(hits)
-
     document
       .getElementById("resetShipsButton")
       .setAttribute("disabled", "disabled");
@@ -157,7 +161,7 @@ const ComputersBattle = () => {
     document.getElementById("showSunkenShip").innerHTML =
       "The " + winner + " won";
 
-    setIsVisible(true)
+    setIsVisible(true);
   };
 
   const handleDifficultyChangeForPlayer = (e) => {
@@ -332,17 +336,17 @@ const ComputersBattle = () => {
       >
         Start a game!
       </motion.button>
-      {isVisible && <motion.button
-        id="startGameButton"
-        className="rotateButton"
-        whileHover={onHover.hover}
-        onTap={{ scale: 0.9 }}
-        onClick={() => {
-          history.push("/")
-        }}
-      >
-        Save game
-      </motion.button> }
+      {isVisible && (
+        <motion.button
+          id="startGameButton"
+          className="rotateButton"
+          whileHover={onHover.hover}
+          onTap={{ scale: 0.9 }}
+          onClick={handleSaveGame}
+        >
+          Save game
+        </motion.button>
+      )}
       <div id="showSunkenShip"></div>
     </>
   );
