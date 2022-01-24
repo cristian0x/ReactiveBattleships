@@ -5,22 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="070921f3-6a97-4d94-8481-8188e04109fe" name="Default Changelist" comment="Backend added">
-      <change afterPath="$PROJECT_DIR$/react-web/src/services/getToken.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react-web/src/services/updatePlayer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react-web/src/components/Replays/HitsGrids/testGridOpponent1.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react-web/src/components/Replays/HitsGrids/testGridOpponent2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react-web/src/components/Replays/HitsGrids/testGridPlayer1.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react-web/src/components/Replays/HitsGrids/testGridPlayer2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react-web/src/components/Replays/HitsGrids/testHits1.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react-web/src/components/Replays/HitsGrids/testHits2.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/react-web/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-web/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-web/src/components/Authentication/forgotPasswordBox.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react-web/src/components/Authentication/forgotPasswordBox.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/react-web/src/components/Authentication/loginBox.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react-web/src/components/Authentication/loginBox.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/react-web/src/components/HotSeat/WinnerPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-web/src/components/HotSeat/WinnerPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/react-web/src/components/Replays/Replay.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-web/src/components/Replays/Replay.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-web/src/hooks/useAxiosGet.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-web/src/hooks/useAxiosGet.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-web/src/pages/Leaderboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-web/src/pages/Leaderboard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-web/src/services/changePassword.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-web/src/services/changePassword.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-web/src/services/leaderboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-web/src/services/leaderboard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-web/src/services/saveGame.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-web/src/services/saveGame.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/controllers/AuthorizationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/controllers/AuthorizationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/controllers/JwtAuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/controllers/JwtAuthenticationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/dto/ProfileUpdateDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/dto/ProfileUpdateDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-web/src/components/Replays/ReplayList.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-web/src/components/Replays/ReplayList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-web/src/components/Replays/testGridOpponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-web/src/components/Replays/HitsGrids/testGridOpponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-web/src/components/Replays/testGridPlayer.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-web/src/components/Replays/HitsGrids/testGridPlayer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-web/src/components/Replays/testHits.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-web/src/components/Replays/HitsGrids/testHits.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-web/src/functions/SinglePlayer/roundCycle.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-web/src/functions/SinglePlayer/roundCycle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-web/src/functions/automaticShipLayout.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-web/src/functions/automaticShipLayout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-web/src/pages/Authentication.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react-web/src/pages/Authentication.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-web/src/pages/ComputersBattle.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react-web/src/pages/ComputersBattle.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-web/src/pages/Menu.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react-web/src/pages/Menu.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-web/src/styles/game.css" beforeDir="false" afterPath="$PROJECT_DIR$/react-web/src/styles/game.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-web/src/styles/hotSeat.css" beforeDir="false" afterPath="$PROJECT_DIR$/react-web/src/styles/hotSeat.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-web/src/styles/menu.css" beforeDir="false" afterPath="$PROJECT_DIR$/react-web/src/styles/menu.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/user/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/reactive-spring/src/main/java/com/io/reactivespring/user/UserService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -140,7 +148,7 @@
       </MavenSettings>
       <method v="2" />
     </configuration>
-    <configuration name="ReactiveSpringApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <configuration name="ReactiveSpringApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true">
       <module name="reactive-spring" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.io.reactivespring.ReactiveSpringApplication" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -158,6 +166,7 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.ReactiveSpringApplication" />
         <item itemvalue="HTTP Request.generated-requests#2" />
         <item itemvalue="HTTP Request.generated-requests#1" />
       </list>
@@ -200,6 +209,11 @@
       <workItem from="1641940624652" duration="2873000" />
       <workItem from="1642003211971" duration="135000" />
       <workItem from="1642692298388" duration="7078000" />
+      <workItem from="1642701224817" duration="713000" />
+      <workItem from="1642702666107" duration="89000" />
+      <workItem from="1642705362556" duration="620000" />
+      <workItem from="1642968463872" duration="1227000" />
+      <workItem from="1643047136693" duration="2494000" />
     </task>
     <task id="LOCAL-00001" summary="init.d">
       <created>1635525174574</created>

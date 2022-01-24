@@ -26,7 +26,7 @@ const WinnerPage = ({ hasGameEnded, gameMovesInOrder, player1Data, player2Data }
       animate={pageSwitch.visible}
       transition={pageSwitch.transition}
     >
-      <h1> {"Winer is: " + hasGameEnded[1]} </h1>
+      <h1> {"Winner is: " + hasGameEnded[1]} </h1>
       <motion.button
         className="button"
         onClick={() => history.push("/")}

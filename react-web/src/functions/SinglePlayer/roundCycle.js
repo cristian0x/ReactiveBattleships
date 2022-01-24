@@ -85,6 +85,7 @@ export const roundCycle = (
   setPlayerShootingBoard(playerShootingBoardCopy);
   setAiLayout(opponentLayoutCopy);
   setIsUpToDate();
+  console.log(opponentLayoutCopy)
 };
 
 const aiMove = (

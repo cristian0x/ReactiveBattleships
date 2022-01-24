@@ -6,6 +6,7 @@ import { aiAlgorithm } from "../functions/aiAlgorithm";
 import { useState } from "react/cjs/react.development";
 import { onHover } from "../animationVariants/animationVariants";
 import { motion } from "framer-motion";
+import { useHistory } from "react-router-dom";
 
 const createGrid = () => {
   const grid = [];
@@ -61,6 +62,9 @@ const ComputersBattle = () => {
   const [difficultyLevelForOpponent, setDifficultyLevelForOpponent] =
     useState("");
 
+  const [isVisible, setIsVisible] = useState(false)
+  const history = useHistory()
+
   const visualizeAutomaticShipLayout = () => {
     let dataFromAutomaticShipLayout = automaticShipLayout(resetShipLayout());
     return dataFromAutomaticShipLayout;
@@ -80,7 +84,7 @@ const ComputersBattle = () => {
   };
 
   const animateAiAlgorithm = (hits) => {
-    console.log(hits);
+    console.log(hits)
 
     document
       .getElementById("resetShipsButton")
@@ -91,7 +95,13 @@ const ComputersBattle = () => {
       .setAttribute("disabled", "disabled");
 
     for (let i = 0; i < hits.length; i++) {
-      setTimeout(() => {
+      let timeout = setTimeout(() => {
+        if (!(window.location.href === "http://localhost:3000/game")) {
+          clearTimeout(timeout);
+          window.location.reload();
+          return;
+        }
+
         switch (hits[i][2]) {
           case "player":
             if (hits[i][3] === 1) {
@@ -146,6 +156,8 @@ const ComputersBattle = () => {
     }
     document.getElementById("showSunkenShip").innerHTML =
       "The " + winner + " won";
+
+    setIsVisible(true)
   };
 
   const handleDifficultyChangeForPlayer = (e) => {
@@ -229,6 +241,7 @@ const ComputersBattle = () => {
         name="selectDifficultyForComputer2"
         id="selectDifficultyForComputer2"
         onChange={handleDifficultyChangeForOpponent}
+        disabled={disable}
       >
         <option value="" defaultValue>
           Please select difficulty
@@ -241,6 +254,7 @@ const ComputersBattle = () => {
         name="selectDifficultyForComputer1"
         id="selectDifficultyForComputer1"
         onChange={handleDifficultyChangeForPlayer}
+        disabled={disable}
       >
         <option value="" defaultValue>
           Please select difficulty
@@ -318,6 +332,17 @@ const ComputersBattle = () => {
       >
         Start a game!
       </motion.button>
+      {isVisible && <motion.button
+        id="startGameButton"
+        className="rotateButton"
+        whileHover={onHover.hover}
+        onTap={{ scale: 0.9 }}
+        onClick={() => {
+          history.push("/")
+        }}
+      >
+        Save game
+      </motion.button> }
       <div id="showSunkenShip"></div>
     </>
   );

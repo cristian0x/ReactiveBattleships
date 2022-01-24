@@ -19,7 +19,12 @@ const Menu = () => {
 
   return (
     <div className="mainContainer">
-      <Authentication setPlayerData={setPlayer1Data} playerData={player1Data} />
+      <div className="columnLogInLeft">
+        <Authentication
+          setPlayerData={setPlayer1Data}
+          playerData={player1Data}
+        />
+      </div>
       <div className="column">
         <motion.h5
           className="battleshipsText"
@@ -46,6 +51,10 @@ const Menu = () => {
         <motion.div
           className="chooseMode"
           onClick={() => {
+            if (!(player2Data[0].email || player1Data[0].email)) {
+              alert("You have to log in to play");
+              return;
+            }
             history.push("/single-player");
           }}
           initial={rightBoxVariants.hidden}
@@ -102,7 +111,12 @@ const Menu = () => {
           <h5 className="chooseModeText">Saved sea battles</h5>
         </motion.div>
       </div>
-      <Authentication setPlayerData={setPlayer2Data} playerData={player2Data} />
+      <div className="columnLogInRight">
+        <Authentication
+          setPlayerData={setPlayer2Data}
+          playerData={player2Data}
+        />
+      </div>
     </div>
   );
 };

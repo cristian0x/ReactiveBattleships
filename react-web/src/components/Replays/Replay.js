@@ -61,6 +61,12 @@ const Replay = ({ replay }) => {
 
     for (let i = 0; i < hits.length; i++) {
       const animationCycle = setTimeout(() => {
+        if (!(window.location.href === "http://localhost:3000/saved-sea-battles")) {
+          clearTimeout(animationCycle);
+          window.location.reload();
+          return;
+        }
+
         switch (hits[i][2]) {
           case "player":
             if (hits[i][3] === 1) {

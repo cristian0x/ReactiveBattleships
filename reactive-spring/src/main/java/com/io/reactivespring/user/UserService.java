@@ -114,7 +114,7 @@ public class UserService {
 
         final User user = optionalUser.get();
 
-        if(!Objects.equals(user.getPassword(), changePasswordDTO.getOldPassword())) {
+        if(!passwordEncoder.matches(changePasswordDTO.getOldPassword(), user.getPassword())) {
             LOGGER.info("updatePassword() password doesn't match!");
             throw new AuthorizationException.IncorrectPasswordException();
         }

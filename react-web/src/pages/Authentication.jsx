@@ -28,7 +28,6 @@ const Authentication = ({ setPlayerData, playerData }) => {
   }
 
   return (
-    <div className="columnLogIn">
       <div id="formContent">
         <button id="btns" onClick={showLoginBox} disabled={playerData[1]} >
           <h2 className={isLoginOpen ? "active" : "inactive underlineHover"}>
@@ -53,7 +52,7 @@ const Authentication = ({ setPlayerData, playerData }) => {
         {isRegisterOpen && <RegisterBox />}
         {isForgotPasswordOpen && <ForgotPasswordBox />}
 
-        {!playerData[1] && (<div id="formFooter">
+        {playerData[1] && (<div id="formFooter">
           <h2
             className={
               isForgotPasswordOpen ? "active" : "inactive underlineHover"
@@ -65,7 +64,6 @@ const Authentication = ({ setPlayerData, playerData }) => {
           </h2>
         </div> )}
       </div>
-    </div>
   );
 };
 

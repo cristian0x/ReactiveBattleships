@@ -42,17 +42,20 @@ h1 {
 }
 
 .column {
-  padding-top: 20px;
+  padding-top: 3px;
   margin-left: 2px;
   flex: 1;
   flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .gameDiv {
   background: transparent;
   flex: 10;
   font-family: Roboto, cursive;
-  padding-top: 20px;
+  padding-top: 15px;
 }
 
 .gridRow {
